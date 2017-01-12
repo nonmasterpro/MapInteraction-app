@@ -1,0 +1,53 @@
+<!--
+  Generated template for the Schedule page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+
+    <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-title>Schedule</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-item>
+    <ion-label fixed>Subject</ion-label>
+    <ion-input type="string" value=""></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>Time</ion-label>
+    <ion-input type="string"></ion-input>
+  </ion-item>
+
+
+  <ion-item>
+    <ion-label>Place</ion-label>
+    <ion-select [(ngModel)]="gender">
+      <ion-option value="c" selected="true">CAMT</ion-option>
+      <ion-option value="e">ECON</ion-option>
+      <ion-option value="h">HUMAN</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+<div padding>
+  <button ion-button color="gray">Add</button>
+</div>
+
+</ion-content>

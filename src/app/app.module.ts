@@ -5,6 +5,27 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { LoginPage } from '../pages/login/login';
+import { RegisPage } from '../pages/regis/regis';
+import { MapPage } from '../pages/map/map';
+import { SchedulePage } from '../pages/schedule/schedule';
+import { LogoutPage } from '../pages/logout/logout';
+
+import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
+import { Http, RequestOptions } from '@angular/http';
+
+import { AuthService } from './shared/auth.service';
+
+import { AppConfig } from './app.config';
+
+export function getAuthHttp(http) {
+  return new AuthHttp(new AuthConfig({
+    headerPrefix: 'Bearer',
+    noJwtError: true,
+    globalHeaders: [{ 'Accept': 'application/json' }],
+    tokenGetter: (() => localStorage.getItem('id_token')),
+  }), http);
+}
 
 @NgModule({
   declarations: [
@@ -12,7 +33,13 @@ import { TabsPage } from '../pages/tabs/tabs';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage,
+    RegisPage,
+    HomePage,
+    MapPage,
+    SchedulePage,
+    LogoutPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -23,8 +50,29 @@ import { TabsPage } from '../pages/tabs/tabs';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    LoginPage,
+    RegisPage,
+    HomePage,
+    MapPage,
+    SchedulePage,
+    LogoutPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [
+    { 
+      provide: ErrorHandler,
+      useClass: IonicErrorHandler
+    },
+    AuthService,
+    {
+      provide: AuthHttp,
+      useFactory: getAuthHttp,
+      deps: [Http, RequestOptions]
+    },
+    {
+      provide: 'AppConfig',
+      useValue: AppConfig
+    }
+  ]
 })
-export class AppModule {}
+export class AppModule { }
