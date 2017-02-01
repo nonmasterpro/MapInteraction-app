@@ -22108,3 +22108,12 @@ sub {
     padding-top: calc(16px + 20px);
   }
 }
+
+page-map .scroll-content {
+  height: 100%;
+}
+
+page-map #map {
+  width: 100%;
+  height: 100%;
+}

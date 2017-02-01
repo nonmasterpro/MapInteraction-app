@@ -71,4 +71,5 @@ export class MyApp {
 logoutApp() {
     this.authService.logout();
   }
+  
 }
