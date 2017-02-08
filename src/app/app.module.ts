@@ -10,6 +10,7 @@ import { RegisPage } from '../pages/regis/regis';
 import { MapPage } from '../pages/map/map';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { LogoutPage } from '../pages/logout/logout';
+import { BusmapPage } from '../pages/busmap/busmap';
 import { ConnectivityService } from '../providers/connectivity-service';
 
 import { provideAuth, AuthHttp, AuthConfig } from 'angular2-jwt';
@@ -38,7 +39,8 @@ export function getAuthHttp(http) {
     LoginPage,
     RegisPage,
     MapPage,
-    SchedulePage
+    SchedulePage,
+    BusmapPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -53,7 +55,8 @@ export function getAuthHttp(http) {
     LoginPage,
     RegisPage,
     MapPage,
-    SchedulePage
+    SchedulePage,
+    BusmapPage
   ],
   providers: [
     { 
