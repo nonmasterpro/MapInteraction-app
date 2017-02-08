@@ -25,14 +25,58 @@
   </ion-item>
 
   <ion-item>
-    <ion-label fixed>Time</ion-label>
-    <ion-input type="string"></ion-input>
+    <ion-label fixed>Description</ion-label>
+    <ion-input type="string" value=""></ion-input>
   </ion-item>
 
+  <ion-item>
+    <ion-label fixed>Time start</ion-label>
+    <ion-select [(ngModel)]="time">
+      <ion-option value="c" selected="true">CAMT</ion-option>
+      <ion-option value="e">ECON</ion-option>
+      <ion-option value="h">HUMAN</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label fixed>Time end</ion-label>
+    <ion-select [(ngModel)]="timeend">
+      <ion-option value="c" selected="true">CAMT</ion-option>
+      <ion-option value="e">ECON</ion-option>
+      <ion-option value="h">HUMAN</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+    </ion-select>
+  </ion-item>
+
+<ion-item>
+    <ion-label>Place Types</ion-label>
+    <ion-select [(ngModel)]="type">
+      <ion-option value="c" selected="true">CAMT</ion-option>
+      <ion-option value="e">ECON</ion-option>
+      <ion-option value="h">HUMAN</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+      <ion-option value="en">ENTANEER</ion-option>
+    </ion-select>
+  </ion-item>
 
   <ion-item>
     <ion-label>Place</ion-label>
-    <ion-select [(ngModel)]="gender">
+    <ion-select [(ngModel)]="place">
       <ion-option value="c" selected="true">CAMT</ion-option>
       <ion-option value="e">ECON</ion-option>
       <ion-option value="h">HUMAN</ion-option>

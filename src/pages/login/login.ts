@@ -44,11 +44,11 @@ export class LoginPage implements OnInit {
 
   login() {
     this.authService.login(this.credentials).then(res => {
-      alert( 'เข้าระบบสำเร็จ' );
+      alert( 'Log in Success' );
       this.navCtrl.setRoot(HomePage)
     }).catch(res => {
       let error = JSON.parse( res._body ).error;
-      alert( error );
+      alert( 'Email or Password is invalid' );
     });
   }
 

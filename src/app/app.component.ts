@@ -8,6 +8,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisPage } from '../pages/regis/regis';
 import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
+import { BusmapPage } from '../pages/busmap/busmap';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { AuthService } from './shared/auth.service';
 
@@ -48,6 +49,7 @@ export class MyApp {
         hide: 'login'
       },
       { title: 'Map', component: MapPage },
+      { title: 'Cmu Bus Map', component: BusmapPage },
       { title: 'Schedule', component: SchedulePage },
       { title: 'Red car time', component: HomePage }
     ];
