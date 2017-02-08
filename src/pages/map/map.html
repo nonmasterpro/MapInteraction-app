@@ -23,7 +23,7 @@
 <ion-content padding>
   <div id="floating-panel">
     <b>Start: </b>
-    <select id="start">
+    <select id="start" [(ngModel)]="start">
       <option value="chicago, il">Chicago</option>
       <option value="st louis, mo">St Louis</option>
       <option value="joplin, mo">Joplin, MO</option>
@@ -38,7 +38,7 @@
       <option value="los angeles, ca">Los Angeles</option>
     </select>
     <b>End: </b>
-    <select id="end">
+    <select id="end" [(ngModel)]="end">
       <option value="chicago, il">Chicago</option>
       <option value="st louis, mo">St Louis</option>
       <option value="joplin, mo">Joplin, MO</option>
@@ -54,9 +54,7 @@
     </select>
     </div>
 Hello World
-<div #map id="map"></div> 
+<div #map id="map"></div>
 
 
 </ion-content>
-
-
