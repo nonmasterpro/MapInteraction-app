@@ -12,7 +12,7 @@ if (window && (window.location.hostname === 'localhost' || /0\.0\.0\.0/.test(win
 } else {
     for (let e in endpoints) {
         if (endpoints.hasOwnProperty(e)) {
-            endpoints[e] = `http://192.168.1.6:8001${endpoints[e]}`;
+            endpoints[e] = `http://139.59.231.135${endpoints[e]}`;
         }
     }
 }
