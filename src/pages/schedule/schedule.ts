@@ -12,6 +12,8 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'schedule.html'
 })
 export class SchedulePage {
+  
+  day:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {}
 

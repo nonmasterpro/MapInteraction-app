@@ -3,7 +3,6 @@ import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
 import { TabsPage } from '../pages/tabs/tabs';
-import { ContactPage } from '../pages/contact/contact';
 import { LoginPage } from '../pages/login/login';
 import { RegisPage } from '../pages/regis/regis';
 import { HomePage } from '../pages/home/home';
@@ -11,9 +10,7 @@ import { MapPage } from '../pages/map/map';
 import { BusmapPage } from '../pages/busmap/busmap';
 import { SchedulePage } from '../pages/schedule/schedule';
 import { AuthService } from './shared/auth.service';
-
-import{ LogoutPage } from '../pages/logout/logout';
-
+import { TestmapPage } from '../pages/testmap/testmap';
 @Component({
   templateUrl: 'app.html'
 })
@@ -27,6 +24,10 @@ export class MyApp {
 
   user: any;
 
+  schedules: any;
+
+  pagess: any;
+
   constructor(private platform: Platform, private authService: AuthService) {
     this.initializeApp();
 
@@ -38,21 +39,19 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
-      { 
-        title: 'Log in',
-        component: LoginPage,
-        hide: 'login'
-       },
-      { 
-        title: 'Registration', 
-        component: RegisPage,
-        hide: 'login'
-      },
+      { title: 'Log in', component: LoginPage, hide: 'login'},
+      { title: 'Registration', component: RegisPage, hide: 'login'},
       { title: 'Map', component: MapPage },
       { title: 'Cmu Bus Map', component: BusmapPage },
-      { title: 'Schedule', component: SchedulePage },
       { title: 'Red car time', component: HomePage }
     ];
+
+    this.pagess = [
+      { title: 'Schedule', component: TestmapPage },
+      { title: 'Add Schedule', component: SchedulePage}
+      ];
+
+    
   }
 
   initializeApp() {
@@ -70,8 +69,8 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-logoutApp() {
+  logoutApp() {
     this.authService.logout();
   }
-  
+
 }

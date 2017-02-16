@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams,  } from 'ionic-angular';
+import { NavController } from 'ionic-angular';
 import { AuthService } from '../../app/shared/auth.service';
 import { HomePage } from '../../pages/home/home';
 

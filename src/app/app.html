@@ -16,6 +16,13 @@
         </button>
     </div>
 
+    <div *ngFor="let pagee of pagess">
+      <button  menuClose ion-item (click)="openPage(pagee)">
+      <!--*ngIf="user"  Add this static button for logout-->
+        {{ pagee.title }}
+      </button>
+    </div>
+
     <button *ngIf="user" ion-item (click)="logoutApp()">
       <!--Add this static button for logout-->
         Log Out
