@@ -1,17 +1,17 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ConnectivityService } from '../../providers/connectivity-service';
-import { Geolocation } from 'ionic-native';
+import _ from "lodash";
+
 
 declare var google;
-
-
-
 @Component({
   selector: 'page-map',
   templateUrl: 'map.html'
 })
 export class MapPage {
+
+  @Input() options;
 
   @ViewChild('map') mapElement: ElementRef;
 
@@ -20,8 +20,15 @@ export class MapPage {
   apiKey: any;
 
   constructor(public nav: NavController, public connectivityService: ConnectivityService) {
+
     this.loadGoogleMaps();
+
   }
+
+  ngOnDestroy() {
+
+  }
+
 
   loadGoogleMaps() {
 
@@ -51,11 +58,10 @@ export class MapPage {
         }
 
         document.body.appendChild(script);
-
       }
     }
     else {
-    console.log("Else");
+      console.log("Else");
       if (this.connectivityService.isOnline()) {
         console.log("showing map");
         this.initMap();
@@ -70,7 +76,7 @@ export class MapPage {
 
   }
 
-  // initMap(){
+  // initMap2(){
 
   //   this.mapInitialised = true;
 
@@ -90,6 +96,8 @@ export class MapPage {
   //   });
 
   // }
+
+
   directionsService: any;
   directionsDisplay: any;
   start: string = '';
@@ -113,14 +121,6 @@ export class MapPage {
       map: map,
       draggable: true,
       animation: google.maps.Animation.DROP,
-      position: { lat: 41.936144, lng: -88.237559 }
-    });
-    this.marker.addListener('click', this.toggleBounce);
-
-    this.marker = new google.maps.Marker({
-      map: map,
-      draggable: true,
-      animation: google.maps.Animation.DROP,
       position: { lat: 44.92000, lng: -88.237559 }
     });
     this.marker.addListener('click', this.toggleBounce);
@@ -133,6 +133,20 @@ export class MapPage {
     });
     beachMarker.addListener('click', this.toggleBounce);
 
+    //   let image2='logo.png';
+    //    var marker = new google.maps.Marker({
+    //   position: { lat: 45.92000, lng: -88.237559 },
+    //   map: map,
+    //   icon:image
+    // });
+
+
+    if (this.options) {
+      console.log("BUS MAP")
+    }
+    else if (!this.options) {
+      console.log("MAP")
+    }
   }
 
   toggleBounce() {
@@ -148,31 +162,31 @@ export class MapPage {
     this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay);
   };
 
+
+
   calculateAndDisplayRoute(directionsService, directionsDisplay) {
-    let origin: any = new google.maps.LatLng(41.85, -87.65);
-
+    // let origin: any = new google.maps.LatLng(41.85, -87.65);
+    let arr = [{ 'lat': 43.04, 'lng': -87.90 }, { 'lat': 43.04, 'lng': -87.90 }, { 'lat': 43.04, 'lng': -87.90 }];
+    // console.log(arr);
     let destination: any = document.getElementById('end');
-    directionsService.route({
-      origin: origin,
-      destination: destination.value,
-      travelMode: 'DRIVING'
-    }, (response, status) => {
-      if (status === 'OK') {
-        directionsDisplay.setDirections(response);
-       console.log()
-        // console.log(response);
-      } else {
-        window.alert('Directions request failed due to ' + status);
-      }
-    });
-  }
 
-
-
-
-
-  test(e) {
-    console.log(e);
+   _.forEach((arr),(value)=> {
+      // console.log(value);
+      let origin = new google.maps.LatLng(value.lat, value.lng);
+      console.log(origin);
+      directionsService.route({
+        origin: origin,
+        destination: destination.value,
+        travelMode: 'DRIVING'
+      }, (response, status) => {
+        if (status === 'OK') {
+          // directionsDisplay.setDirections(response);
+          console.log(response.routes[0].legs[0].distance.value);
+        } else {
+          window.alert('Directions request failed due to ' + status);
+        }
+      });
+  });
   }
 
   disableMap() {
@@ -188,7 +202,7 @@ export class MapPage {
     let onOnline = () => {
 
       setTimeout(() => {
-        if (typeof google == "undefined" || typeof google.maps == "undefined") {
+        if (typeof google == "object" || typeof google == "undefined" || typeof google.maps == "undefined") {
 
           this.loadGoogleMaps();
 

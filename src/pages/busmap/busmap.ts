@@ -1,7 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { ConnectivityService } from '../../providers/connectivity-service';
-import { Geolocation } from 'ionic-native';
 
 declare var google;
 
@@ -13,7 +11,7 @@ declare var google;
 })
 export class BusmapPage {
 
- 
+ busmapPage=true;
   constructor() {
 
   }
