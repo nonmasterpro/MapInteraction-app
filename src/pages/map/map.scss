@@ -2,15 +2,185 @@
  
   page-map {
  
-    .scroll-content {
-      height: 100%
-    }
+    // .scroll-content {
+    //   height: 100%
+    // }
  
     #map {
       width: 100%;
       height: 100%;
     }
  
+//  #floating-panel {
+//         position: absolute;
+//         top: 15px;
+//         // left: 25%;
+//         z-index: 5;
+//         // background-color: #fff;
+//         padding: 19.4px;
+//         border: 1px solid #999;
+//         text-align: center;
+//         font-family: 'Roboto','sans-serif';
+//         line-height: 30px;
+//         padding-left: 10px;
+//       }
+
+   #floating-panel {
+padding-left: 15px;
+padding-bottom: 5px;
+
+   }
+
+   #drop {
+        position: absolute;
+        top: 18%;
+        left: 18%;
+        z-index: 5;
+        background-color: #FFF;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+        margin-left: -52px;
+      }
+      #drop2 {
+        position: absolute;
+        top: 25%;
+        left: 18%;
+        z-index: 5;
+        background-color: #FFF;
+        padding: 5px;
+        border: 1px solid #999;
+        text-align: center;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+        margin-left: -52px;
+      }
+  
+      #ionicIcon{
+        font-size: 45px;
+        position: absolute;
+        top: 17%;
+        left: 18%;
+        z-index: 5;
+        padding: 5px;
+        line-height: 30px;
+        padding-left: 4px;
+        margin-left: -52px;
+        // background-color: mediumpurple;
+      }
+
+      #buildingIcon{
+        font-size: 30px;
+        position: absolute;
+        top: 25%;
+        left: 18%;
+        z-index: 5;
+        padding: 5px;
+        line-height: 30px;
+        padding-left: 10px;
+        margin-left: -52px;
+        // background-color: beige;
+      }
+
+      #sportfIcon{
+        font-size: 30px;
+        position: absolute;
+        top: 31%;
+        left: 18%;
+        z-index: 5;
+        padding: 5px;
+        line-height: 30px;
+        padding-left: 10px;
+        margin-left: -52px;
+        // background-color: lightgrey;
+        
+      }
+
+      #coffeeIcon{
+        font-size: 30px;
+        position: absolute;
+        top: 37%;
+        left: 18%;
+        z-index: 5;
+        padding: 5px;
+        line-height: 30px;
+        padding-left: 10px;
+        margin-left: -52px;
+      }
+
+      #restaIcon{
+        font-size: 30px;
+        position: absolute;
+        top: 43%;
+        left: 18%;
+        z-index: 5;
+        padding: 5px;
+        line-height: 30px;
+        padding-left: 10px;
+        margin-left: -52px;
+      }
+
+      #dormIcon{
+        font-size: 30px;
+        position: absolute;
+        top: 49%;
+        left: 18%;
+        z-index: 5;
+        padding: 5px;
+        line-height: 30px;
+        padding-left: 10px;
+        margin-left: -52px;
+      }
+
+      #landIcon{
+        font-size: 30px;
+        position: absolute;
+        top: 55%;
+        left: 18%;
+        z-index: 5;
+        padding: 5px;
+        line-height: 30px;
+        padding-left: 12px;
+        margin-left: -52px;
+      }
+
+      #carIcon{
+        font-size: 30px;
+        position: absolute;
+        top: 61%;
+        left: 18%;
+        z-index: 5;
+        padding: 5px;
+        line-height: 30px;
+        padding-left: 10px;
+        margin-left: -52px;
+      }
+
+      #atmIcon{
+        font-size: 30px;
+        position: absolute;
+        top: 67%;
+        left: 18%;
+        z-index: 5;
+        padding: 5px;
+        line-height: 30px;
+        padding-left: 12px;
+        margin-left: -52px;
+      }
+      #divbuild{
+        background-color: yellow;
+        border: solid #000;
+      }
+      
+
+      h6{
+        color: black;
+      }
+
   }
  
 // }

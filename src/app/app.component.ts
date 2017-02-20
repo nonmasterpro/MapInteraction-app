@@ -1,8 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';
 
-import { TabsPage } from '../pages/tabs/tabs';
+// import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { RegisPage } from '../pages/regis/regis';
 import { HomePage } from '../pages/home/home';
@@ -14,11 +14,11 @@ import { TestmapPage } from '../pages/testmap/testmap';
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class MyApp implements OnInit{
 
   @ViewChild(Nav) nav: Nav;
 
-  rootPage = TabsPage;
+  rootPage = HomePage;
 
   pages: any;
 
@@ -32,9 +32,10 @@ export class MyApp {
     this.initializeApp();
 
     this.authService.obMe.subscribe((user) => {
-      console.log(user);
+      // console.log(user);
       this.user = user;
     });
+    
 
     // used for an example of ngFor and navigation
     this.pages = [
@@ -53,6 +54,10 @@ export class MyApp {
 
     
   }
+
+ngOnInit(){
+this.authService.me();
+}
 
   initializeApp() {
     this.platform.ready().then(() => {

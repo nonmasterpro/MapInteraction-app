@@ -22109,6 +22109,22 @@ sub {
   }
 }
 
+.toolbar-background-md {
+  background-color: #3b5998;
+}
+
+.bar-buttons.bar-buttons-md {
+  background-color: #3b5998;
+}
+
+h3 {
+  color: white;
+}
+
+#namee {
+  color: white;
+}
+
 page-busmap .scroll-content {
   height: 100%;
 }
@@ -22118,13 +22134,161 @@ page-busmap #map {
   height: 100%;
 }
 
-page-map .scroll-content {
-  height: 100%;
-}
-
 page-map #map {
   width: 100%;
   height: 100%;
+}
+
+page-map #floating-panel {
+  padding-left: 15px;
+  padding-bottom: 5px;
+}
+
+page-map #drop {
+  position: absolute;
+  top: 18%;
+  left: 18%;
+  z-index: 5;
+  background-color: #FFF;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+  margin-left: -52px;
+}
+
+page-map #drop2 {
+  position: absolute;
+  top: 25%;
+  left: 18%;
+  z-index: 5;
+  background-color: #FFF;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+  margin-left: -52px;
+}
+
+page-map #ionicIcon {
+  font-size: 45px;
+  position: absolute;
+  top: 17%;
+  left: 18%;
+  z-index: 5;
+  padding: 5px;
+  line-height: 30px;
+  padding-left: 4px;
+  margin-left: -52px;
+}
+
+page-map #buildingIcon {
+  font-size: 30px;
+  position: absolute;
+  top: 25%;
+  left: 18%;
+  z-index: 5;
+  padding: 5px;
+  line-height: 30px;
+  padding-left: 10px;
+  margin-left: -52px;
+}
+
+page-map #sportfIcon {
+  font-size: 30px;
+  position: absolute;
+  top: 31%;
+  left: 18%;
+  z-index: 5;
+  padding: 5px;
+  line-height: 30px;
+  padding-left: 10px;
+  margin-left: -52px;
+}
+
+page-map #coffeeIcon {
+  font-size: 30px;
+  position: absolute;
+  top: 37%;
+  left: 18%;
+  z-index: 5;
+  padding: 5px;
+  line-height: 30px;
+  padding-left: 10px;
+  margin-left: -52px;
+}
+
+page-map #restaIcon {
+  font-size: 30px;
+  position: absolute;
+  top: 43%;
+  left: 18%;
+  z-index: 5;
+  padding: 5px;
+  line-height: 30px;
+  padding-left: 10px;
+  margin-left: -52px;
+}
+
+page-map #dormIcon {
+  font-size: 30px;
+  position: absolute;
+  top: 49%;
+  left: 18%;
+  z-index: 5;
+  padding: 5px;
+  line-height: 30px;
+  padding-left: 10px;
+  margin-left: -52px;
+}
+
+page-map #landIcon {
+  font-size: 30px;
+  position: absolute;
+  top: 55%;
+  left: 18%;
+  z-index: 5;
+  padding: 5px;
+  line-height: 30px;
+  padding-left: 12px;
+  margin-left: -52px;
+}
+
+page-map #carIcon {
+  font-size: 30px;
+  position: absolute;
+  top: 61%;
+  left: 18%;
+  z-index: 5;
+  padding: 5px;
+  line-height: 30px;
+  padding-left: 10px;
+  margin-left: -52px;
+}
+
+page-map #atmIcon {
+  font-size: 30px;
+  position: absolute;
+  top: 67%;
+  left: 18%;
+  z-index: 5;
+  padding: 5px;
+  line-height: 30px;
+  padding-left: 12px;
+  margin-left: -52px;
+}
+
+page-map #divbuild {
+  background-color: yellow;
+  border: solid #000;
+}
+
+page-map h6 {
+  color: black;
 }
 
 /*!

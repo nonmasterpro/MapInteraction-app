@@ -3,31 +3,16 @@ import { NavController } from 'ionic-angular';
 import { AuthService } from '../../app/shared/auth.service';
 import { HomePage } from '../../pages/home/home';
 
-// import { MdDialogRef } from '@angular/material';
 
-/*
-  Generated class for the Login page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html'
 })
-// export class LoginPage {
 
-//   constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-//   ionViewDidLoad() {
-//     console.log('ionViewDidLoad LoginPage');
-//   }
-
-// }
 
 export class LoginPage implements OnInit {
-
+user : any;
   credentials = {
     'email': '',
     'password': ''
@@ -40,7 +25,12 @@ export class LoginPage implements OnInit {
     public navCtrl: NavController
     ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+//     this.authService.obMe.subscribe((user) => {
+// console.log(user);
+// this.user = user;
+// });
+}
 
   login() {
     this.authService.login(this.credentials).then(res => {

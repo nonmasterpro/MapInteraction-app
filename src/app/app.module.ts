@@ -17,10 +17,16 @@ import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http, RequestOptions } from '@angular/http';
 
 import { AuthService } from './shared/auth.service';
+import { UserService } from './shared/user.service';
+import { ScheduleService } from './shared/schedule.service';
+import { PlaceService } from './shared/place.service';
+
 
 import { AppConfig } from './app.config';
 
 import {CalendarComponent} from "angular2-fullcalendar/src/calendar/calendar";
+
+import { CloudSettings, CloudModule } from '@ionic/cloud-angular';
 
 export function getAuthHttp(http) {
   return new AuthHttp(new AuthConfig({
@@ -30,6 +36,12 @@ export function getAuthHttp(http) {
     tokenGetter: (() => localStorage.getItem('id_token')),
   }), http);
 }
+
+const cloudSettings: CloudSettings = {
+  'core': {
+    'app_id': 'APP_ID'
+  }
+};
 
 @NgModule({
   declarations: [
@@ -47,7 +59,8 @@ export function getAuthHttp(http) {
     CalendarComponent
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    CloudModule.forRoot(cloudSettings)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -74,6 +87,9 @@ export function getAuthHttp(http) {
       useFactory: getAuthHttp,
       deps: [Http, RequestOptions]
     },
+    UserService,
+    ScheduleService,
+    PlaceService,
     {
       provide: 'AppConfig',
       useValue: AppConfig

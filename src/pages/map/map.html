@@ -1,12 +1,16 @@
 <ion-header>
-<ion-navbar>
+  <ion-navbar>
 
- <button menuToggle>
+    <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
 
-    <ion-title *ngIf="options">CMU Bus Map</ion-title>
-    <ion-title *ngIf="!options">Map</ion-title>
+    <ion-title *ngIf="options">
+      <h3>CMU Bus Map</h3>
+    </ion-title>
+    <ion-title *ngIf="!options">
+      <h3>Map</h3>
+    </ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -16,7 +20,6 @@
 <ion-content padding>
   <div id="floating-panel">
     <b>Start: </b>
-    {{ start }}
     <select id="start" [(ngModel)]="start" (change)="onChangeHandler()">
       <option [ngValue]="'chicago, il'">Chicago</option>
       <option [ngValue]="'st louis, mo'">St Louis</option>
@@ -32,7 +35,7 @@
       <option [ngValue]="'los angeles, ca'">Los Angeles</option>
     </select>
     <b>End: </b>
-    {{ end }}
+
     <select id="end" [(ngModel)]="end" (change)="onChangeHandler()">
        <option [ngValue]="'chicago, il'">Chicago</option>
       <option [ngValue]="'st louis, mo'">St Louis</option>
@@ -47,11 +50,28 @@
       <option [ngValue]="'san bernardino, ca'">San Bernardino</option>
       <option [ngValue]="'los angeles, ca'">Los Angeles</option>
     </select>
-    </div>
-Hello World
-<div #map id="map"></div> 
+  </div>
+
+  <ion-icon id=ionicIcon (click)="toggle()" ios="ios-ionic" md="md-ionic"></ion-icon>
+
+  <div *ngIf="toggled">
+
+  <ion-icon id=buildingIcon (click)="drop('building','../assets/icon/3048.png')" ios="ios-podium" md="md-podium"></ion-icon>
+  <!-- https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png -->
+  <ion-icon id=sportfIcon (click)="drop('sportField')" ios="ios-football" md="md-football"></ion-icon>
+  <ion-icon id=coffeeIcon (click)="drop('cafe')" ios="ios-cafe" md="md-cafe"></ion-icon>
+  <ion-icon id=restaIcon (click)="drop('restaurant')" ios="ios-restaurant" md="md-restaurant"></ion-icon>
+  <ion-icon id=dormIcon (click)="drop('dormitory')" ios="ios-home" md="md-home"></ion-icon>
+  <ion-icon id=landIcon (click)="drop('landmark')" ios="ios-pin" md="md-pin"></ion-icon>
+  <ion-icon id=carIcon (click)="drop('carParking')" ios="ios-car" md="md-car"></ion-icon>
+  <ion-icon id=atmIcon (click)="drop('ATM')" ios="logo-bitcoin" md="logo-bitcoin"></ion-icon>
+  </div>
+
+
+  <!--<button id="drop"  (click)="drop()">Drop Markers</button>
+  <button id="drop2" (click)="drop2()">Drop Markers </button>-->
+
+  <div #map id="map"></div>
 
 
 </ion-content>
-
-
