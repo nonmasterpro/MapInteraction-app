@@ -2,8 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ScheduleService } from '../../app/shared/schedule.service';
 import { HomePage } from '../../pages/home/home';
+import { ListSchedulePage } from '../../pages/list-schedule/list-schedule';
 import { AuthService } from '../../app/shared/auth.service';
-// import { User } from '../../app/models/user';
+import { User } from '../../app/models/user';
+import { Course } from '../../app/models/course';
 import { UserService } from '../../app/shared/user.service';
 import { PlaceService } from '../../app/shared/place.service';
 import _ from "lodash";
@@ -30,7 +32,7 @@ export class SchedulePage implements OnInit {
     'placeId': ''
   };
   user: any;
-  rootPage: any = HomePage;
+  rootPage: any = ListSchedulePage;
   data: any;
   places:any;
 
@@ -40,10 +42,7 @@ export class SchedulePage implements OnInit {
     private scheduleService: ScheduleService,
     private userService: UserService,
     private placeService: PlaceService) {
-    //   this.authService.obMe.subscribe((user) => {
-    //   console.log(user);
-    //   this.user = user;
-    //  });
+   
   }
 
   ngOnInit() {
@@ -64,37 +63,42 @@ export class SchedulePage implements OnInit {
     })
   }
 
-  // test(type) {
-  //   let test1 =[];
-  //   // console.log(this.places);
-  //   _.forEach( this.places, (value) => {
-  //     if (value.type===type)
-  //       test1.push({'id':value.id,'name':value.name})
-  //     })
-  // console.log(test1);
-  // return test1;
-  // }
-
+  listN:any;
   onChange(type) {
     console.log(type);
-    let listP =[];
+    let listP = [];
     // console.log(this.places);
     _.forEach( this.places, (value) => {
       if (value.type===type)
         listP.push({'id':value.id,'name':value.name})
       })
-  console.log(listP);
-  return listP;
+  this.listN=listP;
+  console.log(this.listN);
   }
+
+listId: any;
+  onChangeId(name){
+console.log('id');
+let pp = [];
+    // console.log(this.places);
+    _.forEach( this.places, (value) => {
+      if (value.name===name)
+        pp.push({'id':value.id,'name':value.name})
+      }) 
+this.listId=pp;
+console.log(this.listId[0].id);
+  }
+
 
   add() {
     this.credentials.userId = this.user.id;
-    this.scheduleService.addS(this.credentials).then(res => {
+    this.credentials.placeId = this.listId[0].id;
+    this.scheduleService.add(this.credentials).then(res => {
       alert('Add Success');
-      this.navCtrl.setRoot(HomePage)
+      this.navCtrl.setRoot(ListSchedulePage)
     }).catch(res => {
       let error = JSON.parse(res._body).error;
-      alert('Email is already used');
+      alert('Error');
     });
   }
 

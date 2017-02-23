@@ -26,10 +26,17 @@
 //       }
 
    #floating-panel {
-padding-left: 15px;
+// padding-left: 15px;
 padding-bottom: 5px;
 
    }
+
+   #buttonOnchange{
+        position: absolute;
+        margin-left: 5px;
+        padding-right: 2px;
+        padding-top: 6px;
+      }
 
    #drop {
         position: absolute;
@@ -63,8 +70,8 @@ padding-bottom: 5px;
       #ionicIcon{
         font-size: 45px;
         position: absolute;
-        top: 17%;
-        left: 18%;
+        top: 100px;
+        left: 70px;
         z-index: 5;
         padding: 5px;
         line-height: 30px;
@@ -76,8 +83,8 @@ padding-bottom: 5px;
       #buildingIcon{
         font-size: 30px;
         position: absolute;
-        top: 25%;
-        left: 18%;
+        top: 150px;
+        left: 70px;
         z-index: 5;
         padding: 5px;
         line-height: 30px;
@@ -89,8 +96,8 @@ padding-bottom: 5px;
       #sportfIcon{
         font-size: 30px;
         position: absolute;
-        top: 31%;
-        left: 18%;
+        top: 200px;
+        left: 70px;
         z-index: 5;
         padding: 5px;
         line-height: 30px;
@@ -103,8 +110,8 @@ padding-bottom: 5px;
       #coffeeIcon{
         font-size: 30px;
         position: absolute;
-        top: 37%;
-        left: 18%;
+        top: 250px;
+        left: 70px;
         z-index: 5;
         padding: 5px;
         line-height: 30px;
@@ -115,8 +122,8 @@ padding-bottom: 5px;
       #restaIcon{
         font-size: 30px;
         position: absolute;
-        top: 43%;
-        left: 18%;
+        top: 300px;
+        left: 70px;
         z-index: 5;
         padding: 5px;
         line-height: 30px;
@@ -127,8 +134,8 @@ padding-bottom: 5px;
       #dormIcon{
         font-size: 30px;
         position: absolute;
-        top: 49%;
-        left: 18%;
+        top: 350px;
+        left: 70px;
         z-index: 5;
         padding: 5px;
         line-height: 30px;
@@ -139,8 +146,8 @@ padding-bottom: 5px;
       #landIcon{
         font-size: 30px;
         position: absolute;
-        top: 55%;
-        left: 18%;
+        top: 400px;
+        left: 70px;
         z-index: 5;
         padding: 5px;
         line-height: 30px;
@@ -151,8 +158,8 @@ padding-bottom: 5px;
       #carIcon{
         font-size: 30px;
         position: absolute;
-        top: 61%;
-        left: 18%;
+        top: 450px;
+        left: 70px;
         z-index: 5;
         padding: 5px;
         line-height: 30px;
@@ -163,14 +170,30 @@ padding-bottom: 5px;
       #atmIcon{
         font-size: 30px;
         position: absolute;
-        top: 67%;
-        left: 18%;
+        top: 500px;
+        left: 70px;
         z-index: 5;
         padding: 5px;
         line-height: 30px;
         padding-left: 12px;
         margin-left: -52px;
       }
+
+      #locate{
+
+        font-size: 30px;
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        z-index: 5;
+        padding: 5px;
+        line-height: 30px;
+        padding-left: 12px;
+        margin-left: -52px;
+        color: red;
+
+      }
+
       #divbuild{
         background-color: yellow;
         border: solid #000;
@@ -180,6 +203,12 @@ padding-bottom: 5px;
       h6{
         color: black;
       }
+
+      .ng-valid{
+      width: 110px;
+      }
+
+      
 
   }
  

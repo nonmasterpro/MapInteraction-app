@@ -11,7 +11,7 @@ declare var google;
   selector: 'page-map',
   templateUrl: 'map.html'
 })
-export class MapPage implements OnInit{
+export class MapPage implements OnInit {
 
   @Input() options;
 
@@ -109,22 +109,10 @@ export class MapPage implements OnInit{
   directionsDisplay: any;
   start: string = '';
   marker: any;
-
-  building = [
-        {lat: 18.792, lng: 98.922},
-        {lat: 18.755, lng: 98.902},
-        {lat: 18.733, lng: 98.896},
-        {lat: 18.711, lng: 98.884}
-      ];
-  sportField = [
-        {lat: 18.892, lng: 98.922},
-        {lat: 18.855, lng: 98.902},
-        {lat: 18.833, lng: 98.896},
-        {lat: 18.811, lng: 98.884}
-      ];
   markers = [];
 
-  places:any;
+  
+  places: any;
 
 
   initMap() {
@@ -141,55 +129,6 @@ export class MapPage implements OnInit{
     // document.getElementById('start').addEventListener('change', onChangeHandler);
     // document.getElementById('end').addEventListener('change', onChangeHandler);
 
-    this.marker = new google.maps.Marker({
-      map: this.map,
-      draggable: true,
-      animation: google.maps.Animation.DROP,
-      position: { lat: 44.92000, lng: -88.237559 }
-    });
-
-
-    // let image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-    // let beachMarker = new google.maps.Marker({
-    //   position: { lat: 18.793042, lng: 98.956259 },
-    //   map: this.map,
-    //   icon: image
-    // });
-
-// _.forEach((image),(df)=>{
-//      let contentString = '<div id="content">'+
-//             '<div id="siteNotice">'+
-//             '</div>'+
-//             '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-//             '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-//             'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-//             '(last visited June 22, 2009).</p>'+
-//             '</div>'+
-//             '</div>';
-//         let infowindow = new google.maps.InfoWindow({
-//           content: contentString,
-//           maxWidth: 200
-//         });
-//         let marker = new google.maps.Marker({
-//           position: { lat: 18.800995, lng: 98.952569 },
-//           map: this.map,
-//           title: 'RB5'
-//         });
-//         marker.addListener('click', function() {
-//           infowindow.open(this.map, marker);
-//         });
-// });
-    //   let image2='logo.png';
-    //    var marker = new google.maps.Marker({
-    //   position: { lat: 45.92000, lng: -88.237559 },
-    //   map: map,
-    //   icon:image
-    // });
-
-        //   let ctaLayer = new google.maps.KmlLayer({
-        //   url: 'http://googlemaps.github.io/js-v2-samples/ggeoxml/cta.kml',
-        //   map: this.map
-        // });
 
     if (this.options) {
       console.log("BUS MAP")
@@ -199,6 +138,31 @@ export class MapPage implements OnInit{
     }
   }
 
+  listStart: any;
+  onChangeStart(nameS) {
+    console.log(nameS);
+    let listS = [];
+    _.forEach(this.places, (value) => {
+      if (value.name === nameS)
+        listS.push({ 'lat': value.x, 'lng': value.y })
+    })
+    this.listStart = listS;
+    console.log(this.listStart);
+  }
+
+  listEnd: any;
+  onChangeEnd(name) {
+    console.log(name);
+    let listE = [];
+    _.forEach(this.places, (value) => {
+      if (value.name === name)
+        listE.push({ 'lat': value.x, 'lng': value.y })
+    })
+    this.listEnd = listE;
+    console.log(this.listEnd);
+  }
+
+
   onChangeHandler() {
     this.calculateAndDisplayRoute(this.directionsService, this.directionsDisplay);
   }
@@ -206,28 +170,49 @@ export class MapPage implements OnInit{
 
 
   calculateAndDisplayRoute(directionsService, directionsDisplay) {
-    // let origin: any = new google.maps.LatLng(41.85, -87.65);
-    let arr = [{ 'lat': 18.800995, 'lng': 98.952569 }, { 'lat': 18.800995, 'lng': 98.952569 }, { 'lat': 18.800995, 'lng': 98.952569 }];
-    let arr2 = [{ 'lat': 18.796512, 'lng': 98.953316 }];
-    // console.log(arr);
-    let destination: any = document.getElementById('end');
 
+    let a = new google.maps.LatLng(this.listStart[0].lat, this.listStart[0].lng);
+    let b = new google.maps.LatLng(this.listEnd[0].lat, this.listEnd[0].lng);
+
+    directionsService.route({
+      origin: a,
+      destination: b,
+      //destination.value
+      travelMode: 'DRIVING'
+    }, (response, status) => {
+      if (status === 'OK') {
+        directionsDisplay.setDirections(response);
+        console.log(response.routes[0].legs[0].distance.value);
+      } else {
+        window.alert('Directions request failed due to ' + status);
+      }
+    });
+    ;
+  }
+
+onChangeAAA() {
+    this.calculateShortestRoute(this.directionsService, this.directionsDisplay);
+  }
+
+CurrentLat:any;
+CurrentLng:any;
+  calculateShortestRoute(directionsService, directionsDisplay) {
+   
+    let arr = [{'name':'qqq' , 'lat': 18.790355, 'lng':  98.955785 }, {'name':'www' , 'lat': 18.793362,  'lng': 98.945872 },
+              {'name':'eee' , 'lat': 18.789665, 'lng': 98.951923 }];
    _.forEach((arr),(value)=> {
-      // console.log(value);
-      let origin = new google.maps.LatLng(value.lat, value.lng);
-
-      let a = new google.maps.LatLng(18.800995, 98.952569);
-      let b = new google.maps.LatLng(18.796512, 98.953316);
-
-      console.log(origin);
+      let a = new google.maps.LatLng(this.CurrentLat, this.CurrentLng);
+      let b = new google.maps.LatLng(value.lat,value.lng);
+      console.log(this.CurrentLat);
       directionsService.route({
         origin: a,
         destination: b,
-        //destination.value
         travelMode: 'DRIVING'
       }, (response, status) => {
         if (status === 'OK') {
-          directionsDisplay.setDirections(response);
+          // directionsDisplay.setDirections(response);
+          // console.log(response);
+
           console.log(response.routes[0].legs[0].distance.value);
         } else {
           window.alert('Directions request failed due to ' + status);
@@ -236,86 +221,139 @@ export class MapPage implements OnInit{
   });
   }
 
-
-
- drop(type,imm) {
-        let place = this.test(type);
-        this.clearMarkers();
-        for (var i = 0; i < place.length; i++) {
-          this.addMarkerWithTimeout(place[i], i * 200,imm);
-        }
-      }
-
-
-
- addMarkerWithTimeout(position, timeout,imm) {
-   console.log("position");
-        window.setTimeout(()=> {
-          let image = imm;
-          this.markers.push(new google.maps.Marker({
-            position: position,
-            map: this.map,
-            icon: image
-          }));
-          // let contentString = '<div id="content">'+
-          //              '<div id="siteNotice">'+
-          //              '</div>'+
-          //              '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
-          //              '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
-          //              'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
-          //              '(last visited June 22, 2009).</p>'+
-          //              '</div>'+
-          //              '</div>';
-          // let infowindow = new google.maps.InfoWindow({
-          //            content: contentString,
-          //            maxWidth: 200
-          //         });
-          // this.marker.addListener('click', () => {
-          //            infowindow.open(this.map, this.marker);
-          //          });
-        }, timeout);
-      }
-
-
-
-       clearMarkers() {
-        for (var i = 0; i < this.markers.length; i++) {
-          this.markers[i].setMap(null);
-        }
-        this.markers = [];
-        console.log(this.markers);
-      }
-
-toggled: boolean;
-toggle() {
-  this.clearMarkers();
-        this.toggled = this.toggled ? false : true;
+  
+  drop(type, imm) {
+    this.test(type);
+    // let place2 = this.inform(type);
+    this.clearMarkers();
+    for (let i = 0; i < this.test2.length; i++) {
+      let image = imm;
+      this.marker = new google.maps.Marker({
+        position: this.test2[i],
+        map: this.map,
+        icon: image
+      });
+      this.markers.push(this.marker);
+      
+      let dd = "http://139.59.231.135/map/public/images/"
+      let contentString = 
+      
+      '<h6 style="text-align:center" id="firstHeading" class="firstHeading">'+this.test3[i].name + '</h6>'+
+       '<IMG WIDTH="100%" HEIGHT="120px" BORDER="0" ALIGN="Left" SRC="'
+        + dd 
+          +this.test3[i].images +
+        '">'+
+        '<div>' +
+        "<b> Description : </b>"+
+        this.test3[i].des+'</div>'+
+        '</div>'+
+        "<b> Contact : </b>"+
+        this.test3[i].contact+'</div>'+
+        '</div>'+
+        "</br><b>Website : </b>"+
+        this.test3[i].website+'</div>'+
+        '</div>'+" "+'</div>'
+        ;
+     this.infoWin(this.marker, contentString);
     }
+    
+}
+ 
+infoWin(markers,contentString){
+     let infowindow = new google.maps.InfoWindow({
+        content: contentString,
+        maxWidth: 200,
+        maxHeight: 500
+      });
+      // console.log(markers);
+      // google.maps.event.addListener(this.markers, 'click', () => {
+      //   infowindows.open(this.map, this.markers);
+      // });
+      markers.addListener('click', () => {
+                 infowindow.open(this.map, markers);
+               });
+  }
+
+  clearMarkers() {
+    for (var i = 0; i < this.markers.length; i++) {
+      this.markers[i].setMap(null);
+    }
+    this.markers = [];
+    console.log("clear");
+  }
+
+  test2: any;
+  test3:any;
+  test(type) {
+    let test1 = [];
+    let aaa = [];
+    // console.log(this.places);
+    _.forEach(this.places, (value) => {
+      if (value.type === type)
+        test1.push({ 'lat': value.x, 'lng': value.y }),
+        aaa.push({ 'name': value.name, 'des': value.description , 'contact': value.contact, 'website': value.website,
+         'images':value.images[0].fileName})
+    })
+    // console.log(test1);
+    this.test2 = test1;
+    this.test3 = aaa;
+    // return test1;
+  }
 
 
-ngOnInit(){
+  
+  toggled: boolean;
+  toggle() {
+    this.clearMarkers();
+    this.toggled = this.toggled ? false : true;
+  }
+
+
+  ngOnInit() {
 
     this.placeService.all().then(res => {
-      this.places=res;
-      // console.log(res);
-
+      this.places = res;
     })
 
-  }
+    navigator.geolocation.getCurrentPosition((position)=> {
+            let x = position.coords.latitude;
+            let y = position.coords.longitude;
+            this.CurrentLat=x;
+            this.CurrentLng=y;
+        })
 
+      }
 
-  test(type) {
-    let test1 =[];
-    // console.log(this.places);
-    _.forEach( this.places, (value) => {
-      if (value.type===type)
-        test1.push({'lat':value.x,'lng':value.y})
-      })
-  console.log(test1);
-  return test1;
-  }
+locate(){
+  let infoWindow = new google.maps.Marker({map: this.map});
+     if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position)=> {
+            let x = position.coords.latitude;
+            let y = position.coords.longitude;
+            let pos = {
+              lat: x,
+              lng: y
+            };
+            infoWindow.setPosition(pos);
+            // infoWindow.setContent('Location found.');
+            this.map.setCenter(pos);
+          }, () =>{
+            this.handleLocationError(true, infoWindow, this.map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          this.handleLocationError(false, infoWindow, this.map.getCenter());
+        }
+}
 
+      handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        // infoWindow.setContent(browserHasGeolocation ?
+        //                       'Error: The Geolocation service failed.' :
+        //                       'Error: Your browser doesn\'t support geolocation.');
+      }
 
+  
 
 
 

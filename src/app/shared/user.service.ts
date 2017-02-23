@@ -1,9 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { Headers, Http, RequestOptions } from '@angular/http';
-import { Observable, Subject } from 'rxjs';
 import { AuthHttp, tokenNotExpired } from 'angular2-jwt';
 
-import { User } from '../models/user';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -40,6 +38,15 @@ add(user) {
           } else {
             reject({});
           }
+        });
+	  });
+  }
+
+  get(id) {
+  	return new Promise((resolve, reject) => {
+  		this.authHttp.get(this.config.apiEndpoints.users + '/' + id).subscribe((res: any) => {
+			let user = JSON.parse(res._body);
+			resolve(user);
         });
 	  });
   }

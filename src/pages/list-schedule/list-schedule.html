@@ -1,0 +1,58 @@
+<!--
+  Generated template for the ListSchedule page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+     <button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <h3>
+        <ion-icon ios="ios-list-box" md="md-list-box"></ion-icon> Schedule
+      </h3>
+      </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+
+<table id="fff">
+    <tr id="eee">
+  <th id="aaa" *ngFor="let header of headers" >
+    {{header.name}}
+  </th> 
+  <th id="aaa">Delete</th>
+</tr>
+  <tr  *ngFor="let a of allsche ; let i = index" >
+     <td id="aaa">{{i+1}}</td>
+     <td id="aaa">{{Days[a.day-1]}}</td>
+     <td id="aaaN">{{a.courseName}}</td>
+     <td id="aaa">{{a.start}}</td>
+     <td id="aaa">{{a.end}}</td>
+     <td id="aaa">{{a.place_id}}</td>
+     <td id="aaa"><button (click)="delete(a.id)">Del</button></td>
+  </tr>
+</table>
+
+
+        <!--<div class="row header" *ngFor="let header of headers">
+          <div class="col">{{header.name}}</div>
+        </div>
+        <div class="row" *ngFor="let a of allsche">
+          <div class="col">{{Days[a.day-1]}}</div>
+          <div class="col">{{a.courseName}}</div>
+          <div class="col">{{a.start}}</div>
+          <div class="col">{{a.end}}</div>
+          <div class="col">{{a.place_id}}</div>
+          <div class="col"><button (click)="delete(a.id)">Del</button></div>
+        </div>-->
+    
+
+</ion-content>

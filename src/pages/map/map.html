@@ -1,77 +1,61 @@
 <ion-header>
   <ion-navbar>
-
     <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-
     <ion-title *ngIf="options">
-      <h3>CMU Bus Map</h3>
+      <h3><ion-icon ios="ios-map" md="md-map"></ion-icon> CMU Bus Map</h3>
     </ion-title>
     <ion-title *ngIf="!options">
-      <h3>Map</h3>
+      <h3><ion-icon ios="ios-map" md="md-map"></ion-icon> Map</h3>
     </ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
-
 <ion-content padding>
-  <div id="floating-panel">
+
+  <div id="floating-panel" *ngIf="!options">
     <b>Start: </b>
-    <select id="start" [(ngModel)]="start" (change)="onChangeHandler()">
-      <option [ngValue]="'chicago, il'">Chicago</option>
-      <option [ngValue]="'st louis, mo'">St Louis</option>
-      <option [ngValue]="'joplin, mo'">Joplin, MO</option>
-      <option [ngValue]="'oklahoma city, ok'">Oklahoma City</option>
-      <option [ngValue]="'amarillo, tx'">Amarillo</option>
-      <option [ngValue]="'gallup, nm'">Gallup, NM</option>
-      <option [ngValue]="'flagstaff, az'">Flagstaff, AZ</option>
-      <option [ngValue]="'winona, az'">Winona</option>
-      <option [ngValue]="'kingman, az'">Kingman</option>
-      <option [ngValue]="'barstow, ca'">Barstow</option>
-      <option [ngValue]="'san bernardino, ca'">San Bernardino</option>
-      <option [ngValue]="'los angeles, ca'">Los Angeles</option>
+    <select id="start" [(ngModel)]="nameS" (change)="onChangeStart(nameS)">
+      <option *ngFor="let p of places" value="{{p.name}}">{{p.name}}</option>
     </select>
     <b>End: </b>
-
-    <select id="end" [(ngModel)]="end" (change)="onChangeHandler()">
-       <option [ngValue]="'chicago, il'">Chicago</option>
-      <option [ngValue]="'st louis, mo'">St Louis</option>
-      <option [ngValue]="'joplin, mo'">Joplin, MO</option>
-      <option [ngValue]="'oklahoma city, ok'">Oklahoma City</option>
-      <option [ngValue]="'amarillo, tx'">Amarillo</option>
-      <option [ngValue]="'gallup, nm'">Gallup, NM</option>
-      <option [ngValue]="'flagstaff, az'">Flagstaff, AZ</option>
-      <option [ngValue]="'winona, az'">Winona</option>
-      <option [ngValue]="'kingman, az'">Kingman</option>
-      <option [ngValue]="'barstow, ca'">Barstow</option>
-      <option [ngValue]="'san bernardino, ca'">San Bernardino</option>
-      <option [ngValue]="'los angeles, ca'">Los Angeles</option>
+    <select id="end" [(ngModel)]="name" (change)="onChangeEnd(name)">
+      <option *ngFor="let p of places" value="{{p.name}}">{{p.name}}</option>
     </select>
+    <button id="buttonOnchange" (click)="onChangeHandler()">Get Route</button>
   </div>
 
-  <ion-icon id=ionicIcon (click)="toggle()" ios="ios-ionic" md="md-ionic"></ion-icon>
-
-  <div *ngIf="toggled">
-
-  <ion-icon id=buildingIcon (click)="drop('building','../assets/icon/3048.png')" ios="ios-podium" md="md-podium"></ion-icon>
-  <!-- https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png -->
-  <ion-icon id=sportfIcon (click)="drop('sportField')" ios="ios-football" md="md-football"></ion-icon>
-  <ion-icon id=coffeeIcon (click)="drop('cafe')" ios="ios-cafe" md="md-cafe"></ion-icon>
-  <ion-icon id=restaIcon (click)="drop('restaurant')" ios="ios-restaurant" md="md-restaurant"></ion-icon>
-  <ion-icon id=dormIcon (click)="drop('dormitory')" ios="ios-home" md="md-home"></ion-icon>
-  <ion-icon id=landIcon (click)="drop('landmark')" ios="ios-pin" md="md-pin"></ion-icon>
-  <ion-icon id=carIcon (click)="drop('carParking')" ios="ios-car" md="md-car"></ion-icon>
-  <ion-icon id=atmIcon (click)="drop('ATM')" ios="logo-bitcoin" md="logo-bitcoin"></ion-icon>
+  <div *ngIf="!options">
+    <ion-icon id=ionicIcon (click)="toggle()" ios="ios-ionic" md="md-ionic"></ion-icon>
+    <div *ngIf="toggled">
+      <ion-icon id=buildingIcon (click)="drop('building','../assets/icon/building.png')" ios="ios-podium" md="md-podium"></ion-icon>
+      <ion-icon id=sportfIcon (click)="drop('sportField','../assets/icon/sport.png')" ios="ios-football" md="md-football"></ion-icon>
+      <ion-icon id=coffeeIcon (click)="drop('cafe','../assets/icon/Cafe.png')" ios="ios-cafe" md="md-cafe"></ion-icon>
+      <ion-icon id=restaIcon (click)="drop('restaurant','../assets/icon/restaurant.png')" ios="ios-restaurant" md="md-restaurant"></ion-icon>
+      <ion-icon id=dormIcon (click)="drop('dormitory','../assets/icon/Dorm.png')" ios="ios-home" md="md-home"></ion-icon>
+      <ion-icon id=landIcon (click)="drop('landmark','../assets/icon/LandMark.png')" ios="ios-pin" md="md-pin"></ion-icon>
+      <ion-icon id=carIcon (click)="drop('carParking','../assets/icon/CarParking.png')" ios="ios-car" md="md-car"></ion-icon>
+      <ion-icon id=atmIcon (click)="drop('ATM','../assets/icon/atm.png')" ios="logo-bitcoin" md="logo-bitcoin"></ion-icon>
+    </div>
   </div>
 
 
-  <!--<button id="drop"  (click)="drop()">Drop Markers</button>
-  <button id="drop2" (click)="drop2()">Drop Markers </button>-->
+<div id="floating-panel" *ngIf="options">
+    <b>Select Place: </b>
+    <select id="start" [(ngModel)]="nameS" (change)="onChangeStart(nameS)">
+      <option *ngFor="let p of places" value="{{p.name}}">{{p.name}}</option>
+    </select>
+    <b>Route Color: </b>
+    <button id="buttonOnchange" (click)="onChangeAAA()">Get Route</button>
+</div>
+
+<div *ngIf="options">
+    <ion-icon id=locate (click)="locate()" ios="ios-locate" md="md-locate"></ion-icon>
+</div>
+
+
 
   <div #map id="map"></div>
-
 
 </ion-content>

@@ -12,6 +12,8 @@ import { SchedulePage } from '../pages/schedule/schedule';
 import { BusmapPage } from '../pages/busmap/busmap';
 import { ConnectivityService } from '../providers/connectivity-service';
 import { TestmapPage } from '../pages/testmap/testmap';
+import { ListSchedulePage } from '../pages/list-schedule/list-schedule';
+
 
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http, RequestOptions } from '@angular/http';
@@ -56,7 +58,8 @@ const cloudSettings: CloudSettings = {
     SchedulePage,
     BusmapPage,
     TestmapPage,
-    CalendarComponent
+    CalendarComponent,
+    ListSchedulePage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -74,7 +77,8 @@ const cloudSettings: CloudSettings = {
     MapPage,
     SchedulePage,
     BusmapPage,
-    TestmapPage
+    TestmapPage,
+    ListSchedulePage
   ],
   providers: [
     { 

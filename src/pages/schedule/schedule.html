@@ -9,12 +9,13 @@
     <button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title><h3>Schedule</h3></ion-title>
+    <ion-title><h3><ion-icon ios="ios-list-box" md="md-list-box"></ion-icon> Add Schedule</h3></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <p>{{user?.name}}</p>
+{{credentials.courseName}}
   <ion-item>
     <ion-label fixed>Subject </ion-label>
     <ion-input type="string" [(ngModel)]="credentials.courseName"></ion-input>
@@ -24,38 +25,32 @@
     <ion-label fixed>Description</ion-label>
     <ion-input type="string" value=""></ion-input>
   </ion-item>-->
-
+{{credentials.day}}
   <ion-item>
     <ion-label fixed>Day</ion-label>
     <ion-select id="day" [(ngModel)]="credentials.day">
-      <ion-option [value]="'1'" >Monday</ion-option>
-      <ion-option [value]="'2'">Tuesday</ion-option>
-      <ion-option [value]="'3'">Wednesday</ion-option>
-      <ion-option [value]="'4'">Thursday</ion-option>
-      <ion-option [value]="'5'">Friday</ion-option>
-      <ion-option [value]="'6'">Saturday</ion-option>
-      <ion-option [value]="'7'">Sunday</ion-option>
+      <ion-option [value]="1" >Monday</ion-option>
+      <ion-option [value]="2">Tuesday</ion-option>
+      <ion-option [value]="3">Wednesday</ion-option>
+      <ion-option [value]="4">Thursday</ion-option>
+      <ion-option [value]="5">Friday</ion-option>
+      <ion-option [value]="6">Saturday</ion-option>
+      <ion-option [value]="7">Sunday</ion-option>
     </ion-select>
   </ion-item>
 
+{{credentials.start}}
   <ion-item>
-    <ion-label fixed>Time start</ion-label>
-    <ion-select [(ngModel)]="credentials.start">
-      <ion-option [value]="'00:00:00'" selected="true">00:00:00</ion-option>
-      <ion-option [value]="'00:00:00'" selected="true">00:00:00</ion-option>
-    </ion-select>
+    <ion-label fixed>Time start </ion-label>
+    <ion-input placeholder="00:00" type="time" [(ngModel)]="credentials.start"></ion-input>
   </ion-item>
 
+{{credentials.end}}
   <ion-item>
-    <ion-label fixed>Time end</ion-label>
-    <ion-select [(ngModel)]="credentials.end">
-      <ion-option [value]="'c'" selected="true">CAMT</ion-option>
-      <ion-option [value]="'e'">ECON</ion-option>
-      <ion-option [value]="'h'">HUMAN</ion-option>
-      <ion-option [value]="'en'">ENTANEER</ion-option>
-
-    </ion-select>
+    <ion-label fixed>Time end </ion-label>
+    <ion-input placeholder="00:00" type="time" [(ngModel)]="credentials.end"></ion-input>
   </ion-item>
+
 
 <ion-item>
     <ion-label>Place Types</ion-label>
@@ -68,25 +63,24 @@
       <ion-option [value]="'dormitory'">Dormitory</ion-option>
       <ion-option [value]="'restaurant'">Restaurant</ion-option>
       <ion-option [value]="'ATM'">ATM</ion-option>
- 
-
     </ion-select>
   </ion-item>
+ 
+<!--<label>Placeeeeeeee</label>
+<select [(ngModel)]="end" (Change)="onChange()">
+      <option *ngFor="let p of listq" value="{{p.id}}">{{p.name}}</option>
+</select>-->
 
   <ion-item>
     <ion-label>Place</ion-label>
-    <ion-select [(ngModel)]="place">
-      <ion-option [value]="c" selected="true">CAMT</ion-option>
-      <ion-option [value]="e">ECON</ion-option>
-      <ion-option [value]="h">HUMAN</ion-option>
-      <ion-option [value]="en">ENTANEER</ion-option>
-
+    <ion-select [(ngModel)]="name" (ionChange)="onChangeId(name)">
+      <ion-option *ngFor="let p of listN" value="{{p.name}}">{{p.name}}</ion-option>
     </ion-select>
   </ion-item>
 
 
 <div padding>
-  <button ion-button color="gray">Add</button>
+  <button ion-button color="gray" (click)="add()">Add</button>
   <button ion-button color="gray">Cancel</button>
 </div>
 

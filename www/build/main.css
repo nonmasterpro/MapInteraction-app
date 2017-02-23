@@ -22115,6 +22115,7 @@ sub {
 
 .bar-buttons.bar-buttons-md {
   background-color: #3b5998;
+  color: white;
 }
 
 h3 {
@@ -22134,14 +22135,51 @@ page-busmap #map {
   height: 100%;
 }
 
+#eee {
+  background-color: lightgrey;
+}
+
+#eee {
+  border: solid 1px grey;
+}
+
+#fff {
+  width: 100% !important;
+}
+
+#aaa {
+  border: solid 1px grey;
+  text-align: center;
+}
+
+#aaaN {
+  border: solid 1px grey;
+  text-align: center;
+  max-width: 100px;
+}
+
+.col:last-child {
+  border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+  border-bottom: solid 1px grey;
+}
+
 page-map #map {
   width: 100%;
   height: 100%;
 }
 
 page-map #floating-panel {
-  padding-left: 15px;
   padding-bottom: 5px;
+}
+
+page-map #buttonOnchange {
+  position: absolute;
+  margin-left: 5px;
+  padding-right: 2px;
+  padding-top: 6px;
 }
 
 page-map #drop {
@@ -22177,8 +22215,8 @@ page-map #drop2 {
 page-map #ionicIcon {
   font-size: 45px;
   position: absolute;
-  top: 17%;
-  left: 18%;
+  top: 100px;
+  left: 70px;
   z-index: 5;
   padding: 5px;
   line-height: 30px;
@@ -22189,8 +22227,8 @@ page-map #ionicIcon {
 page-map #buildingIcon {
   font-size: 30px;
   position: absolute;
-  top: 25%;
-  left: 18%;
+  top: 150px;
+  left: 70px;
   z-index: 5;
   padding: 5px;
   line-height: 30px;
@@ -22201,8 +22239,8 @@ page-map #buildingIcon {
 page-map #sportfIcon {
   font-size: 30px;
   position: absolute;
-  top: 31%;
-  left: 18%;
+  top: 200px;
+  left: 70px;
   z-index: 5;
   padding: 5px;
   line-height: 30px;
@@ -22213,8 +22251,8 @@ page-map #sportfIcon {
 page-map #coffeeIcon {
   font-size: 30px;
   position: absolute;
-  top: 37%;
-  left: 18%;
+  top: 250px;
+  left: 70px;
   z-index: 5;
   padding: 5px;
   line-height: 30px;
@@ -22225,8 +22263,8 @@ page-map #coffeeIcon {
 page-map #restaIcon {
   font-size: 30px;
   position: absolute;
-  top: 43%;
-  left: 18%;
+  top: 300px;
+  left: 70px;
   z-index: 5;
   padding: 5px;
   line-height: 30px;
@@ -22237,8 +22275,8 @@ page-map #restaIcon {
 page-map #dormIcon {
   font-size: 30px;
   position: absolute;
-  top: 49%;
-  left: 18%;
+  top: 350px;
+  left: 70px;
   z-index: 5;
   padding: 5px;
   line-height: 30px;
@@ -22249,8 +22287,8 @@ page-map #dormIcon {
 page-map #landIcon {
   font-size: 30px;
   position: absolute;
-  top: 55%;
-  left: 18%;
+  top: 400px;
+  left: 70px;
   z-index: 5;
   padding: 5px;
   line-height: 30px;
@@ -22261,8 +22299,8 @@ page-map #landIcon {
 page-map #carIcon {
   font-size: 30px;
   position: absolute;
-  top: 61%;
-  left: 18%;
+  top: 450px;
+  left: 70px;
   z-index: 5;
   padding: 5px;
   line-height: 30px;
@@ -22273,13 +22311,26 @@ page-map #carIcon {
 page-map #atmIcon {
   font-size: 30px;
   position: absolute;
-  top: 67%;
-  left: 18%;
+  top: 500px;
+  left: 70px;
   z-index: 5;
   padding: 5px;
   line-height: 30px;
   padding-left: 12px;
   margin-left: -52px;
+}
+
+page-map #locate {
+  font-size: 30px;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  z-index: 5;
+  padding: 5px;
+  line-height: 30px;
+  padding-left: 12px;
+  margin-left: -52px;
+  color: red;
 }
 
 page-map #divbuild {
@@ -22289,6 +22340,10 @@ page-map #divbuild {
 
 page-map h6 {
   color: black;
+}
+
+page-map .ng-valid {
+  width: 110px;
 }
 
 /*!

@@ -3,6 +3,7 @@ let endpoints = {
     me: '/api/user',
     users: '/api/users',
     schedules: '/api/schedules',
+    scheduleUser:'/api/schedules/user',
     places:'/api/places'
 };
 

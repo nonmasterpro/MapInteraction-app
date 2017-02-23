@@ -1,7 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
-import { Course } from '../models/subject';
+import { Course } from '../models/course';
 import { Headers, Http, RequestOptions } from '@angular/http';
-import { Observable, Subject } from 'rxjs';
 import { AuthHttp, tokenNotExpired } from 'angular2-jwt';
 
 @Injectable()
@@ -10,21 +9,33 @@ export class ScheduleService {
 	private headers = new Headers({ 'Content-Type': 'application/json' });
 	private options = new RequestOptions({ headers: this.headers });
 
-	_me: Subject<any> = new Subject();
-	obMe: Observable<any>;
 
     constructor(private http: Http,
 		private authHttp: AuthHttp,
 		@Inject('AppConfig') private config: any
 	) {}
     
-    addS(subject) {
+  all(id) {
+  	return new Promise((resolve, reject) => {
+  		this.authHttp.get(this.config.apiEndpoints.scheduleUser+'/'+id).subscribe((res: any) => {
+          if(res.status === 200) {
+            let schedules = JSON.parse(res._body);
+            resolve(schedules);
+          } else {
+            reject({});
+          }
+        });
+	  });
+  }
+
+    add(course) {
+    console.log(course);
     return new Promise((resolve, reject) => {
-      this.authHttp.post(this.config.apiEndpoints.subjects, subject).subscribe((res: any) => {
+      this.authHttp.post(this.config.apiEndpoints.schedules, course).subscribe((res: any) => {
         console.log(res);
           if(res.status === 200) {
-            let subject = JSON.parse(res._body);
-            resolve(subject);
+            let course = JSON.parse(res._body);
+            resolve(course);
           } else {
             reject({
               'text': 'message'
@@ -33,4 +44,23 @@ export class ScheduleService {
       });
     });
   }
+
+  get(id) {
+    return new Promise((resolve, reject) => {
+      this.authHttp.get(this.config.apiEndpoints.schedules + '/' + id).subscribe((res: any) => {
+      let schedules = JSON.parse(res._body);
+      resolve(schedules);
+        });
+    });
+  }
+
+   delete(id) {
+    return new Promise((resolve, reject) => {
+      this.authHttp.delete(this.config.apiEndpoints.schedules + '/' + id).subscribe((res: any) => {
+      let course = JSON.parse(res._body);
+      resolve(course);
+        });
+    });
+  }
+
 }
