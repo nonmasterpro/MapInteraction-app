@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ScheduleService } from '../../app/shared/schedule.service';
 import { HomePage } from '../../pages/home/home';
-import { ListSchedulePage } from '../../pages/list-schedule/list-schedule';
+import { TestmapPage } from '../../pages/testmap/testmap';
 import { AuthService } from '../../app/shared/auth.service';
 import { User } from '../../app/models/user';
 import { Course } from '../../app/models/course';
@@ -32,7 +32,7 @@ export class SchedulePage implements OnInit {
     'placeId': ''
   };
   user: any;
-  rootPage: any = ListSchedulePage;
+  rootPage: any = TestmapPage;
   data: any;
   places:any;
 
@@ -95,13 +95,15 @@ console.log(this.listId[0].id);
     this.credentials.placeId = this.listId[0].id;
     this.scheduleService.add(this.credentials).then(res => {
       alert('Add Success');
-      this.navCtrl.setRoot(ListSchedulePage)
+      this.navCtrl.setRoot(TestmapPage)
     }).catch(res => {
       let error = JSON.parse(res._body).error;
       alert('Error');
     });
   }
 
-
+cancel(){
+    this.navCtrl.setRoot(TestmapPage)
+  }
 
 }

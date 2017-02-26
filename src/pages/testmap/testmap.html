@@ -20,8 +20,36 @@
 
 <ion-content>
 
+<h6>List Schedule</h6>
 
-<angular2-fullcalendar [options]="calendarOptions"></angular2-fullcalendar>
+<table id="fff">
+    <tr id="eee">
+  <th id="aaa" *ngFor="let header of headers" >
+    {{header.name}}
+  </th> 
+  <th id="aaa">Delete</th>
+</tr>
+  <tr  *ngFor="let a of allsche ; let i = index" >
+     <td id="aaa">{{i+1}}</td>
+     <td id="aaa">{{Days[a.day-1]}}</td>
+     <td id="aaaN">{{a.courseName}}</td>
+     <td id="aaa">{{a.start}}</td>
+     <td id="aaa">{{a.end}}</td>
+     <!--<td id="aaa">{{a.place_id}}</td>-->
+     <td id="aaa">RB5</td>     
+     <td id="aaa"><button (click)="delete(a.id)">Del</button></td>
+  </tr>
+</table>
+
+<div id="button">
+  <button ion-button (click)="goAdd()" class="md-raised md-primary">Add Schedule</button>
+  
+  <button ion-button (click)="toggle()" class="md-raised md-primary">View Schedule</button>  
+</div>
+
+    
+    <angular2-fullcalendar  *ngIf="toggled" [options]="calendarOptions"></angular2-fullcalendar>
+  
 
 
 

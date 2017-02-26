@@ -4,7 +4,8 @@ let endpoints = {
     users: '/api/users',
     schedules: '/api/schedules',
     scheduleUser:'/api/schedules/user',
-    places:'/api/places'
+    places:'/api/places',
+    routes:'/api/stations/routes'
 };
 
 // if (window && (window.location.hostname === 'localhost' || /0\.0\.0\.0/.test(window.location.hostname))) {

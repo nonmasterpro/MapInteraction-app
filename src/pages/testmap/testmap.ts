@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, Platform } from 'ionic-angular';
 import $ from 'jquery';
 import { AuthService } from '../../app/shared/auth.service';
+import { ScheduleService } from '../../app/shared/schedule.service';
+import { PlaceService } from '../../app/shared/place.service';
+import { SchedulePage } from '../../pages/schedule/schedule';
+
+import _ from 'lodash';
 
 // import $ from 'jquery';
 
@@ -15,6 +20,7 @@ declare var google;
 })
 export class TestmapPage implements OnInit{
   user: any;
+  allsche:any;
   constantDate: any;
   day: any;
   timeS: any;
@@ -26,40 +32,60 @@ export class TestmapPage implements OnInit{
   end: any;
   title: any;
   place: any;
-  events = [];
+  allInfo = [];
+  eventss = [];
 
-  ex = {
-    title: '',
-    start: '',
-    end: '',
-    place: ''
-  }
+  alluser:any;
+  daysche:any;
+
+  rootPage: any = SchedulePage;
+  Days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+  headers = [{
+          'prop': 'no',
+          'type': 'text',
+          'name': 'No.'
+        },{
+          'prop': 'day',
+          'type': 'text',
+          'name': 'Day'
+        },
+        {
+          'prop': 'name',
+          'type': 'text',
+          'name': 'Name',
+          'maxWidth': '10'
+        },
+        {
+          'prop': 'start',
+          'type': 'text',
+          'name': 'Time Start'
+        },
+        {
+          'prop': 'end',
+          'type': 'text',
+          'name': 'Time End'
+        },
+        {
+          'prop': 'place',
+          'type': 'text',
+          'name': 'Place'
+        }
+      ];
+
+
 
   constructor(private platform: Platform,
     private authService: AuthService,
-    public nav: NavController) {
-    this.constantDate = '2017-10-0';
+    private scheduleService: ScheduleService,
+    private placeService : PlaceService,
+    public nav: NavController,
+    public navCtrl: NavController
+) {
+      
 
-    this.title = 'OOAD';
-    this.place = 'CAMT';
-    this.day = 3;
-    this.timeS = '12:00';
-    this.timeE = '14:07';
-    this.syntaxTime= 'T';
-
-    this.start = this.constantDate + this.day + this.syntaxTime + this.timeS;
-    this.end = this.constantDate + this.day + this.syntaxTime + this.timeE;
-
-    this.ex.title = this.title;
-    this.ex.start = this.start;
-    this.ex.end = this.end;
-    this.ex.place = this.place;
-
-    for (let i = 0; i < 1; i++) {
-      this.events.push(this.ex)
-    }
-    console.log(this.events)
   }
+  
+
   calendarOptions: Object = {
     header: {
       left: '',
@@ -74,22 +100,13 @@ export class TestmapPage implements OnInit{
         buttonText: 'Schedule'
       }
     },
-    // eventClick: function(calEvent, jsEvent, view) {
-
-    //     alert('Event: ' + calEvent.title);
-    //     alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-    //     alert('View: ' + view.title);
-
-    //     // change the border color just for fun
-    //     $(this).css('border-color', 'purple');
-
-    // },
+  
     eventClick: function(event) {
         if (event.url) {
             window.open(event.url);
             return false;
         }else{
-          alert("ttt");
+          alert("this.title");
         }
     },
     allDaySlot: false,
@@ -98,20 +115,89 @@ export class TestmapPage implements OnInit{
     minTime: '00:00:00',
     maxTime: '24:00:00',
     columnFormat: 'ddd',
-    defaultDate: '2017-10-7',
+    defaultDate: '2017-05-7',
     firstDay: 0,
     editable: false,
     // dragScroll:false,
     eventLimit: true, // allow "more" link when too many events
-    events: this.events
+    events: this.eventss
+    
+    // ()=>{
+    //   let tempEvents=[];
+    //   _.forEach(this.allsche,(value)=>{
+    //     return value.events;
+    //   })
+    //   return tempEvents;
+    // }
   };
 
   ngOnInit(){
     this.authService.me();
     this.authService.obMe.subscribe((user) => {
-    console.log(user);
+    // console.log(user);
     this.user = user;
+
+    this.scheduleService.all(this.user.id).then(res => {
+    this.allsche=res;
+    // console.log(this.allsche);
+
+
+    this.constantDate = '2017-05-0';
+    // this.title = 'OOAD';
+    // this.place = 'CAMT';
+    // this.day = 3;
+    // this.timeS = '12:00';
+    // this.timeE = '14:07';
+    this.syntaxTime= 'T';
+    _.forEach(this.allsche,(value)=>{
+      let aa = [];
+    this.start = this.constantDate + value.day + this.syntaxTime + value.start;
+    this.end = this.constantDate + value.day + this.syntaxTime + value.end;
+    this.eventss.push({
+          "title":value.courseName,
+          "start":this.start,
+          "end":  this.end
+          // ,"day": value.day
+          // ,"place":value.place_id
+        })
+    // value.events = this.eventss;
+    
+    
+    
+    })
+
+    // this.DDD();
+    console.log(this.eventss);
+    // console.log(this.events);
+   
+
   });
+
+  })
+
+  this.placeService.all().then(res => {
+    this.place=res;
+    })
+
 }
+  
+
+  toggled: boolean;
+  toggle() {
+    this.toggled = true;
+  }
+
+delete(id) {
+   this.scheduleService.delete(id).then((res) => {
+      location.reload();
+    }, (error) => {
+      console.log(error);
+    });
+  }
+
+  goAdd(){
+    this.navCtrl.setRoot(SchedulePage)
+  }
+
 
 }

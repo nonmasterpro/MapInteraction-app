@@ -30,12 +30,27 @@
 padding-bottom: 5px;
 
    }
+   #searchpanel {
+       position: absolute!important;
+       top: 75px;
+       left: 70px;
+        z-index: 5;
+        padding: 5px;
+        line-height: 30px;
+        padding-left: 4px;
+        margin-left: -52px;
+   }
 
    #buttonOnchange{
         position: absolute;
         margin-left: 5px;
-        padding-right: 2px;
+        // padding-right: 2px;
         padding-top: 6px;
+        padding-bottom: 2px;
+        border: solid 1px dodgerblue;
+        background-color : #3b5998;
+        color : white;
+
       }
 
    #drop {
@@ -78,6 +93,8 @@ padding-bottom: 5px;
         padding-left: 4px;
         margin-left: -52px;
         // background-color: mediumpurple;
+        color : #3b5998;
+        
       }
 
       #buildingIcon{
@@ -91,6 +108,8 @@ padding-bottom: 5px;
         padding-left: 10px;
         margin-left: -52px;
         // background-color: beige;
+        color : #3b5998;
+        
       }
 
       #sportfIcon{
@@ -104,6 +123,8 @@ padding-bottom: 5px;
         padding-left: 10px;
         margin-left: -52px;
         // background-color: lightgrey;
+        color : #3b5998;
+        
         
       }
 
@@ -117,6 +138,8 @@ padding-bottom: 5px;
         line-height: 30px;
         padding-left: 10px;
         margin-left: -52px;
+        color : #3b5998;
+        
       }
 
       #restaIcon{
@@ -129,6 +152,8 @@ padding-bottom: 5px;
         line-height: 30px;
         padding-left: 10px;
         margin-left: -52px;
+        color : #3b5998;
+        
       }
 
       #dormIcon{
@@ -141,6 +166,8 @@ padding-bottom: 5px;
         line-height: 30px;
         padding-left: 10px;
         margin-left: -52px;
+        color : #3b5998;
+        
       }
 
       #landIcon{
@@ -153,6 +180,8 @@ padding-bottom: 5px;
         line-height: 30px;
         padding-left: 12px;
         margin-left: -52px;
+        color : #3b5998;
+        
       }
 
       #carIcon{
@@ -165,6 +194,8 @@ padding-bottom: 5px;
         line-height: 30px;
         padding-left: 10px;
         margin-left: -52px;
+        color : #3b5998;
+        
       }
 
       #atmIcon{
@@ -177,6 +208,8 @@ padding-bottom: 5px;
         line-height: 30px;
         padding-left: 12px;
         margin-left: -52px;
+        color : #3b5998;
+        
       }
 
       #locate{
@@ -190,7 +223,7 @@ padding-bottom: 5px;
         line-height: 30px;
         padding-left: 12px;
         margin-left: -52px;
-        color: red;
+        color : #3b5998;
 
       }
 

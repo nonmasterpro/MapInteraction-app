@@ -42,4 +42,8 @@ user : any;
     });
   }
 
+  cancel(){
+    this.navCtrl.setRoot(HomePage)
+  }
+
 }

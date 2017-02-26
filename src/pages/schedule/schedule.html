@@ -14,8 +14,7 @@
 </ion-header>
 
 <ion-content padding>
-  <p>{{user?.name}}</p>
-{{credentials.courseName}}
+  <!--<p>{{user?.name}}</p>-->
   <ion-item>
     <ion-label fixed>Subject </ion-label>
     <ion-input type="string" [(ngModel)]="credentials.courseName"></ion-input>
@@ -25,11 +24,10 @@
     <ion-label fixed>Description</ion-label>
     <ion-input type="string" value=""></ion-input>
   </ion-item>-->
-{{credentials.day}}
   <ion-item>
     <ion-label fixed>Day</ion-label>
     <ion-select id="day" [(ngModel)]="credentials.day">
-      <ion-option [value]="1" >Monday</ion-option>
+      <ion-option [value]="1">Monday</ion-option>
       <ion-option [value]="2">Tuesday</ion-option>
       <ion-option [value]="3">Wednesday</ion-option>
       <ion-option [value]="4">Thursday</ion-option>
@@ -39,13 +37,11 @@
     </ion-select>
   </ion-item>
 
-{{credentials.start}}
   <ion-item>
     <ion-label fixed>Time start </ion-label>
     <ion-input placeholder="00:00" type="time" [(ngModel)]="credentials.start"></ion-input>
   </ion-item>
 
-{{credentials.end}}
   <ion-item>
     <ion-label fixed>Time end </ion-label>
     <ion-input placeholder="00:00" type="time" [(ngModel)]="credentials.end"></ion-input>
@@ -81,7 +77,7 @@
 
 <div padding>
   <button ion-button color="gray" (click)="add()">Add</button>
-  <button ion-button color="gray">Cancel</button>
+  <button ion-button color="gray" (click)="cancel()">Cancel</button>
 </div>
 
 </ion-content>

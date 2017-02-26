@@ -15,6 +15,7 @@ import { TestmapPage } from '../pages/testmap/testmap';
 import { ListSchedulePage } from '../pages/list-schedule/list-schedule';
 
 
+
 import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import { Http, RequestOptions } from '@angular/http';
 
@@ -22,6 +23,7 @@ import { AuthService } from './shared/auth.service';
 import { UserService } from './shared/user.service';
 import { ScheduleService } from './shared/schedule.service';
 import { PlaceService } from './shared/place.service';
+import { BusrouteService } from './shared/busroute.service';
 
 
 import { AppConfig } from './app.config';
@@ -94,6 +96,7 @@ const cloudSettings: CloudSettings = {
     UserService,
     ScheduleService,
     PlaceService,
+    BusrouteService,
     {
       provide: 'AppConfig',
       useValue: AppConfig

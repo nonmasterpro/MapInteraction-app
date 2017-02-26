@@ -12,6 +12,8 @@ import { SchedulePage } from '../pages/schedule/schedule';
 import { AuthService } from './shared/auth.service';
 import { TestmapPage } from '../pages/testmap/testmap';
 import { ListSchedulePage } from '../pages/list-schedule/list-schedule';
+import { ContactPage } from '../pages/contact/contact';
+
 
 @Component({
   templateUrl: 'app.html'
@@ -45,14 +47,14 @@ export class MyApp implements OnInit{
       { title: 'Log in', component: LoginPage, hide: 'login'},
       { title: 'Registration', component: RegisPage, hide: 'login'},
       { title: 'Map', component: MapPage },
-      { title: 'Cmu Bus Map', component: BusmapPage },
-      { title: 'Red Car', component: HomePage }
+      { title: 'CMU Bus Map', component: BusmapPage },
+      { title: 'CMU Transit', component: ContactPage }
     ];
 
     this.pagess = [
-      { title: 'List Schedule', component: ListSchedulePage },
-      { title: 'View Schedule', component: TestmapPage },
-      { title: 'Add Schedule', component: SchedulePage}
+      // { title: 'List Schedule', component: ListSchedulePage },
+      { title: 'Schedule', component: TestmapPage }
+      // { title: 'Add Schedule', component: SchedulePage}
       ];
 
     

@@ -5,18 +5,24 @@
       </button>
       
     <ion-title>
-     <h3><ion-icon ios="ios-home" md="md-home" item-left></ion-icon>  Home  </h3>
+     <h3><ion-icon ios="ios-home" md="md-home" item-left></ion-icon>  MIFCs  </h3>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
+    <ion-list-header id = "subhead"><h1>MIFCs</h1></ion-list-header>
+    
+    <ion-list-header id = "subhead2"><h2>Map Interaction For CMU Studants</h2></ion-list-header>
+
+    <!--<ion-list-header id = "subhead"><h2 >Map Interaction For CMU Studants</h2></ion-list-header>-->
+    
+    
+    <!--<ion-item>
       <ion-icon name="ionic" item-left></ion-icon>
       @ionicframework
-    </ion-item>
+    </ion-item>-->
 
 <!--<div style="width: 100%"><iframe width="100%" height="600" 
 src="http://www.maps.ie/map-my-route/myMap.php?route=5777&amp;width=100%&amp;height=600&amp;hl=en&amp;ie=UTF8&amp;t=&amp;z=17&amp;output=embed"
@@ -27,18 +33,11 @@ src="http://www.maps.ie/map-my-route/myMap.php?route=5777&amp;width=100%&amp;hei
  <a href="http://www.maps.ie/">Ireland Map</a>
  </iframe></div><br />-->
 
- <!--<img [src]="'http://139.59.231.135/map/public/images/1.jpg'">-->
- <ion-item>
-  <ion-label>Toppings</ion-label>
-  <ion-select [(ngModel)]="toppings" multiple="true">
-    <ion-option>Bacon</ion-option>
-    <ion-option>Black Olives</ion-option>
-    <ion-option>Extra Cheese</ion-option>
-    <ion-option>Mushrooms</ion-option>
-    <ion-option>Pepperoni</ion-option>
-    <ion-option>Sausage</ion-option>
-  </ion-select>
-</ion-item>
- 
+  <img [src]="'../assets/icon/cmu.jpg'">
+  <div id="camt">
+  <img  [src]="'../assets/icon/Camt.gif'">
+  </div>
+
+
   </ion-list>
 </ion-content>

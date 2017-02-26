@@ -19,16 +19,12 @@ width:100%!important;
 #aaa {
   border: solid 1px grey;
   text-align: center;
-//   border-bottom-style: none;
-//   border-right-style: none;
 }
 
 #aaaN {
   border: solid 1px grey;
   text-align: center;
   max-width: 100px;
-//   border-bottom-style: none;
-//   border-right-style: none;
 }
 
 .col:last-child {
@@ -37,4 +33,12 @@ width:100%!important;
 
 .row:last-child .col {
   border-bottom: solid 1px grey;
+}
+
+h6{
+  text-align: center;
+}
+
+#button{
+  text-align: center;  
 }

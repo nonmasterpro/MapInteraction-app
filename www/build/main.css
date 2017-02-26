@@ -22116,6 +22116,7 @@ sub {
 .bar-buttons.bar-buttons-md {
   background-color: #3b5998;
   color: white;
+  font-size: 20px;
 }
 
 h3 {
@@ -22133,6 +22134,23 @@ page-busmap .scroll-content {
 page-busmap #map {
   width: 100%;
   height: 100%;
+}
+
+#subhead {
+  text-align: center;
+  border: solid white;
+}
+
+#subhead2 {
+  position: absolute;
+  text-align: center;
+  top: 37px;
+  border: solid white;
+}
+
+#camt {
+  position: absolute;
+  left: 65px;
 }
 
 #eee {
@@ -22166,6 +22184,14 @@ page-busmap #map {
   border-bottom: solid 1px grey;
 }
 
+h6 {
+  text-align: center;
+}
+
+#button {
+  text-align: center;
+}
+
 page-map #map {
   width: 100%;
   height: 100%;
@@ -22175,11 +22201,25 @@ page-map #floating-panel {
   padding-bottom: 5px;
 }
 
+page-map #searchpanel {
+  position: absolute !important;
+  top: 75px;
+  left: 70px;
+  z-index: 5;
+  padding: 5px;
+  line-height: 30px;
+  padding-left: 4px;
+  margin-left: -52px;
+}
+
 page-map #buttonOnchange {
   position: absolute;
   margin-left: 5px;
-  padding-right: 2px;
   padding-top: 6px;
+  padding-bottom: 2px;
+  border: solid 1px dodgerblue;
+  background-color: #3b5998;
+  color: white;
 }
 
 page-map #drop {
@@ -22222,6 +22262,7 @@ page-map #ionicIcon {
   line-height: 30px;
   padding-left: 4px;
   margin-left: -52px;
+  color: #3b5998;
 }
 
 page-map #buildingIcon {
@@ -22234,6 +22275,7 @@ page-map #buildingIcon {
   line-height: 30px;
   padding-left: 10px;
   margin-left: -52px;
+  color: #3b5998;
 }
 
 page-map #sportfIcon {
@@ -22246,6 +22288,7 @@ page-map #sportfIcon {
   line-height: 30px;
   padding-left: 10px;
   margin-left: -52px;
+  color: #3b5998;
 }
 
 page-map #coffeeIcon {
@@ -22258,6 +22301,7 @@ page-map #coffeeIcon {
   line-height: 30px;
   padding-left: 10px;
   margin-left: -52px;
+  color: #3b5998;
 }
 
 page-map #restaIcon {
@@ -22270,6 +22314,7 @@ page-map #restaIcon {
   line-height: 30px;
   padding-left: 10px;
   margin-left: -52px;
+  color: #3b5998;
 }
 
 page-map #dormIcon {
@@ -22282,6 +22327,7 @@ page-map #dormIcon {
   line-height: 30px;
   padding-left: 10px;
   margin-left: -52px;
+  color: #3b5998;
 }
 
 page-map #landIcon {
@@ -22294,6 +22340,7 @@ page-map #landIcon {
   line-height: 30px;
   padding-left: 12px;
   margin-left: -52px;
+  color: #3b5998;
 }
 
 page-map #carIcon {
@@ -22306,6 +22353,7 @@ page-map #carIcon {
   line-height: 30px;
   padding-left: 10px;
   margin-left: -52px;
+  color: #3b5998;
 }
 
 page-map #atmIcon {
@@ -22318,6 +22366,7 @@ page-map #atmIcon {
   line-height: 30px;
   padding-left: 12px;
   margin-left: -52px;
+  color: #3b5998;
 }
 
 page-map #locate {
@@ -22330,7 +22379,7 @@ page-map #locate {
   line-height: 30px;
   padding-left: 12px;
   margin-left: -52px;
-  color: red;
+  color: #3b5998;
 }
 
 page-map #divbuild {
@@ -23762,4 +23811,44 @@ be a descendant of the grid when it is being dragged.
 .fc-unthemed .fc-list-empty {
   /* theme will provide own background */
   background-color: #eee;
+}
+
+#eee {
+  background-color: lightgrey;
+}
+
+#eee {
+  border: solid 1px grey;
+}
+
+#fff {
+  width: 360px !important;
+}
+
+#aaa {
+  border: solid 1px grey;
+  text-align: center;
+  max-width: 50px;
+}
+
+#aaaN {
+  border: solid 1px grey;
+  text-align: center;
+  max-width: 100px;
+}
+
+.col:last-child {
+  border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+  border-bottom: solid 1px grey;
+}
+
+h6 {
+  text-align: center;
+}
+
+#button {
+  text-align: center;
 }

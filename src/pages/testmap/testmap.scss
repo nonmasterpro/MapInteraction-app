@@ -1412,3 +1412,55 @@ be a descendant of the grid when it is being dragged.
 	background-color: #eee;
 }
 
+
+//////////////////////
+
+
+#eee {
+  background-color:lightgrey;
+  
+}
+
+#eee {
+  border: solid 1px grey;
+  
+//   border-bottom-style: none;
+//   border-right-style: none;
+}
+
+#fff{
+width:360px!important;
+
+}
+
+#aaa {
+  border: solid 1px grey;
+  text-align: center;
+  max-width: 50px;
+//   border-bottom-style: none;
+//   border-right-style: none;
+}
+
+#aaaN {
+  border: solid 1px grey;
+  text-align: center;
+  max-width: 100px;
+//   border-bottom-style: none;
+//   border-right-style: none;
+}
+
+.col:last-child {
+  border-right: solid 1px grey;
+}
+
+.row:last-child .col {
+  border-bottom: solid 1px grey;
+}
+
+h6{
+  text-align: center;
+}
+
+#button{
+  text-align: center;  
+}

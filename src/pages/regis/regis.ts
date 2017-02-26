@@ -39,6 +39,11 @@ add() {
     });
   }
 
+cancel(){
+      this.navCtrl.setRoot(HomePage)
+  
+}
+
 }
 
   

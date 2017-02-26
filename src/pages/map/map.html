@@ -23,7 +23,14 @@
     <select id="end" [(ngModel)]="name" (change)="onChangeEnd(name)">
       <option *ngFor="let p of places" value="{{p.name}}">{{p.name}}</option>
     </select>
-    <button id="buttonOnchange" (click)="onChangeHandler()">Get Route</button>
+    <button id="buttonOnchange" (click)="onChangeHandler()">GO</button>
+  </div>
+
+  <div id="searchpanel" *ngIf="!options">
+    <b>Search: </b>
+    <select id="start" [(ngModel)]="nameSe" (change)="onChangeSearch(nameSe)">
+      <option *ngFor="let p of places" value="{{p.name}}">{{p.name}}</option>
+    </select>
   </div>
 
   <div *ngIf="!options">
@@ -40,14 +47,18 @@
     </div>
   </div>
 
+<!--////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
 <div id="floating-panel" *ngIf="options">
     <b>Select Place: </b>
-    <select id="start" [(ngModel)]="nameS" (change)="onChangeStart(nameS)">
-      <option *ngFor="let p of places" value="{{p.name}}">{{p.name}}</option>
+    
+    <select id="start" [(ngModel)]="nameSelect" (change)="onChangeSelect(nameSelect)">
+      <option *ngFor="let p of placesBusroutes"  value="{{p.name}}">
+        {{p.name}}
+        </option>
     </select>
-    <b>Route Color: </b>
-    <button id="buttonOnchange" (click)="onChangeAAA()">Get Route</button>
+    <b >Route Color: </b>
+    <!--<button id="buttonOnchange" (click)="onChangeShort()">Go</button>-->
 </div>
 
 <div *ngIf="options">
