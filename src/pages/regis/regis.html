@@ -19,28 +19,30 @@
 
 <ion-content padding>
 
-  <ion-list>
+
+   <form [formGroup]="todo" (ngSubmit)="logForm()">
 
   <ion-item>
     <ion-label floating>Name</ion-label>
-    <ion-input type="string" [(ngModel)]="credentials.name"></ion-input>
+    <ion-input  formControlName="name" type="string" [(ngModel)]="credentials.name" ></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>E-mail</ion-label>
-    <ion-input type="string" [(ngModel)]="credentials.email"></ion-input>
+    <ion-input  formControlName="email" type="email" [(ngModel)]="credentials.email"></ion-input>
   </ion-item>
 
   <ion-item>
     <ion-label floating>Password</ion-label>
-    <ion-input type="password" [(ngModel)]="credentials.password"></ion-input>
+    <ion-input  formControlName="password" type="password" [(ngModel)]="credentials.password"></ion-input>
   </ion-item>
 
-</ion-list>
-
-<div padding>
-  <button ion-button color="gray" (click)="add()">Submit</button>
+<div id=button>
+  <button ion-button color="gray" [disabled]="!todo.valid" type="submit" (click)="add()">Submit</button>
   <button ion-button color="gray" (click)="cancel()">Cancel</button>
 </div>
+   </form>
+
+
 
 </ion-content>

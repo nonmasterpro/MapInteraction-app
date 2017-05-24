@@ -1,8 +1,9 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../app/shared/user.service';
 import { HomePage } from '../../pages/home/home';
 
+import { FormGroup,FormControl,Validators,FormBuilder} from '@angular/forms';
 /*
   Generated class for the Regis page.
 
@@ -14,7 +15,10 @@ import { HomePage } from '../../pages/home/home';
   templateUrl: 'regis.html'
   // encapsulation: ViewEncapsulation.None
 })
-export class RegisPage {
+export class RegisPage implements OnInit{
+
+    formManage: FormGroup;
+todo:FormGroup;
 
    credentials = {
     'name':'',
@@ -22,12 +26,35 @@ export class RegisPage {
     'password': '',
     'roleName': 'user'
   };
-
+  
   rootPage: any = HomePage;
 
   constructor(
     public navCtrl: NavController,
-     private userService: UserService) {}
+     private userService: UserService,
+     private formBuilder: FormBuilder) {
+
+    this.todo = this.formBuilder.group({
+      name: ['', [<any>Validators.required,  Validators.minLength(4)]],
+      email: ['', [<any>Validators.required, <any>Validators.pattern('([a-zA-Z0-9\.]+)@([a-zA-Z0-9])+[.]([a-zA-Z]{2,4})')]],
+      password: ['', [<any>Validators.required,  Validators.minLength(4)]]
+    });
+
+     }
+
+ngOnInit(){
+  
+}
+
+setupForm() {
+      this.formManage = new FormGroup({
+      name: new FormControl('',[<any>Validators.required,  Validators.minLength(4)]),
+      emails:  new FormControl('', [<any>Validators.required, <any>Validators.pattern('([a-zA-Z0-9\.]+)@([a-zA-Z0-9]+\.)([a-zA-Z]{2,4})')]),    
+      passwords: new FormControl('',[<any>Validators.required,  Validators.minLength(4)])
+    });
+    
+  
+  }
 
 add() {
     this.userService.add(this.credentials).then(res => {

@@ -22151,6 +22151,12 @@ page-busmap #map {
 #camt {
   position: absolute;
   left: 65px;
+  top: 400px;
+}
+
+#camt1 {
+  position: absolute;
+  left: 35px;
 }
 
 #eee {
@@ -22214,7 +22220,7 @@ page-map #searchpanel {
 
 page-map #buttonOnchange {
   position: absolute;
-  margin-left: 5px;
+  margin-left: 1px;
   padding-top: 6px;
   padding-bottom: 2px;
   border: solid 1px dodgerblue;
@@ -22268,7 +22274,7 @@ page-map #ionicIcon {
 page-map #buildingIcon {
   font-size: 30px;
   position: absolute;
-  top: 150px;
+  top: 140px;
   left: 70px;
   z-index: 5;
   padding: 5px;
@@ -22281,7 +22287,7 @@ page-map #buildingIcon {
 page-map #sportfIcon {
   font-size: 30px;
   position: absolute;
-  top: 200px;
+  top: 175px;
   left: 70px;
   z-index: 5;
   padding: 5px;
@@ -22294,7 +22300,7 @@ page-map #sportfIcon {
 page-map #coffeeIcon {
   font-size: 30px;
   position: absolute;
-  top: 250px;
+  top: 225px;
   left: 70px;
   z-index: 5;
   padding: 5px;
@@ -22307,7 +22313,7 @@ page-map #coffeeIcon {
 page-map #restaIcon {
   font-size: 30px;
   position: absolute;
-  top: 300px;
+  top: 275px;
   left: 70px;
   z-index: 5;
   padding: 5px;
@@ -22320,7 +22326,7 @@ page-map #restaIcon {
 page-map #dormIcon {
   font-size: 30px;
   position: absolute;
-  top: 350px;
+  top: 325px;
   left: 70px;
   z-index: 5;
   padding: 5px;
@@ -22333,7 +22339,7 @@ page-map #dormIcon {
 page-map #landIcon {
   font-size: 30px;
   position: absolute;
-  top: 400px;
+  top: 375px;
   left: 70px;
   z-index: 5;
   padding: 5px;
@@ -22346,7 +22352,7 @@ page-map #landIcon {
 page-map #carIcon {
   font-size: 30px;
   position: absolute;
-  top: 450px;
+  top: 425px;
   left: 70px;
   z-index: 5;
   padding: 5px;
@@ -22359,7 +22365,7 @@ page-map #carIcon {
 page-map #atmIcon {
   font-size: 30px;
   position: absolute;
-  top: 500px;
+  top: 475px;
   left: 70px;
   z-index: 5;
   padding: 5px;
@@ -22393,6 +22399,12 @@ page-map h6 {
 
 page-map .ng-valid {
   width: 110px;
+}
+
+page-regis #button {
+  padding-top: 15px;
+  float: left;
+  padding-left: 15px;
 }
 
 /*!
@@ -23822,7 +23834,7 @@ be a descendant of the grid when it is being dragged.
 }
 
 #fff {
-  width: 360px !important;
+  width: 340px !important;
 }
 
 #aaa {

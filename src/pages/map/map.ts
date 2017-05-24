@@ -26,7 +26,7 @@ export class MapPage implements OnInit {
     public connectivityService: ConnectivityService,
     private placeService: PlaceService,
     private busrouteService: BusrouteService
-    
+
   ) {
     this.loadGoogleMaps();
   }
@@ -78,7 +78,7 @@ export class MapPage implements OnInit {
   markers = [];
   places: any;
   placesBusroutes=[];
-  
+
   initMap() {
     this.directionsService = new google.maps.DirectionsService;
     this.directionsDisplay = new google.maps.DirectionsRenderer;
@@ -190,7 +190,7 @@ export class MapPage implements OnInit {
         directionsDisplay.setDirections(response);
         console.log(response.routes[0].legs[0].distance.value);
       } else {
-        window.alert('Directions request failed due to ' + status);
+        // window.alert('Directions request failed due to ' + status);
       }
     });
     ;
@@ -205,8 +205,8 @@ export class MapPage implements OnInit {
   CurrentLng: any;
   calculateShortestRoute(directionsService, directionsDisplay) {
 
-    let arr = [{ 'name': 'qqq', 'lat': 18.790355, 'lng': 98.955785 }, { 'name': 'www', 'lat': 18.793362, 'lng': 98.945872 },
-    { 'name': 'eee', 'lat': 18.789665, 'lng': 98.951923 }];
+    // let arr = [{ 'name': 'qqq', 'lat': 18.790355, 'lng': 98.955785 }, { 'name': 'www', 'lat': 18.793362, 'lng': 98.945872 },
+    // { 'name': 'eee', 'lat': 18.789665, 'lng': 98.951923 }];
 
     _.forEach((this.listxystations), (value) => {
       let a = new google.maps.LatLng(this.CurrentLat, this.CurrentLng);
@@ -222,7 +222,7 @@ export class MapPage implements OnInit {
           console.log(response.routes[0].legs[0].distance.value);
           console.log("---");
         } else {
-          window.alert('Directions request failed due to ' + status);
+          // window.alert('Directions request failed due to ' + status);
         }
       });
     });
@@ -318,12 +318,12 @@ export class MapPage implements OnInit {
     _.forEach(res,(place)=>{
      if(place.bus_routes.length !=0){
       this.placesBusroutes.push(place);
-      
+
      }
     });
 
     })
- 
+
     navigator.geolocation.getCurrentPosition((position) => {
       let x = position.coords.latitude;
       let y = position.coords.longitude;
@@ -334,6 +334,7 @@ export class MapPage implements OnInit {
   }
 
   locate() {
+    this.clearMarkers();
     let infoWindow = new google.maps.Marker({ map: this.map });
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -357,7 +358,7 @@ export class MapPage implements OnInit {
 
   handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
-    
+
   }
   listaaa=[];
   listXyPlace=[];
@@ -367,9 +368,11 @@ export class MapPage implements OnInit {
   a =[];
   listString :any;
   listAllStation:any;
+  routeName:any;
   onChangeSelect(name){
     let listEa = [];
     let aaa = [];
+    let bbb = [];
     _.forEach(this.placesBusroutes, (value, key) => {
       if (value.name === name){
         listEa.push({'lat':value.x,'lng':value.y}),
@@ -377,13 +380,16 @@ export class MapPage implements OnInit {
             'name': value.name, 'des': value.description, 'contact': value.contact, 'website': value.website,
             'images': value.images[0].fileName
           }),
+        bbb.push(value.bus_routes[0].name)
         // console.log('id: '+key+' value: '+value);
         this.listSelect=value.bus_routes;
       }
     })
     this.listXyPlace=listEa;
     this.listaaa=aaa;
-    
+    this.routeName=bbb;
+    console.log("BBBBBB",this.routeName);
+
 
 /////addMarker////
     this.clearMarkers();
@@ -439,20 +445,11 @@ export class MapPage implements OnInit {
     console.log(this.listxystations);
     console.log("qwe",this.listXyPlace);
 
-     this.onChangeShort() 
+     this.onChangeShort()
     })
-    
-   
+
+
   }
-
-
-
-  
-
-
-
-
-
 
 
 

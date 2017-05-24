@@ -15,14 +15,17 @@
 <ion-content padding>
 
   <div id="floating-panel" *ngIf="!options">
+
     <b>Start: </b>
     <select id="start" [(ngModel)]="nameS" (change)="onChangeStart(nameS)">
       <option *ngFor="let p of places" value="{{p.name}}">{{p.name}}</option>
     </select>
+
     <b>End: </b>
     <select id="end" [(ngModel)]="name" (change)="onChangeEnd(name)">
       <option *ngFor="let p of places" value="{{p.name}}">{{p.name}}</option>
     </select>
+    
     <button id="buttonOnchange" (click)="onChangeHandler()">GO</button>
   </div>
 
@@ -57,7 +60,9 @@
         {{p.name}}
         </option>
     </select>
-    <b >Route Color: </b>
+    <br>
+    <div *ngIf="routeName">
+    <b >Route Color: {{routeName}} </b></div>
     <!--<button id="buttonOnchange" (click)="onChangeShort()">Go</button>-->
 </div>
 

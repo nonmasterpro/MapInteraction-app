@@ -39,6 +39,7 @@ export class TestmapPage implements OnInit{
   daysche:any;
 
   rootPage: any = SchedulePage;
+  
   Days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
   headers = [{
           'prop': 'no',
@@ -106,7 +107,7 @@ export class TestmapPage implements OnInit{
             window.open(event.url);
             return false;
         }else{
-          alert("this.title");
+          window.alert(this.place);
         }
     },
     allDaySlot: false,
@@ -156,7 +157,8 @@ export class TestmapPage implements OnInit{
     this.eventss.push({
           "title":value.courseName,
           "start":this.start,
-          "end":  this.end
+          "end":  this.end,
+          "place": this.place
           // ,"day": value.day
           // ,"place":value.place_id
         })
@@ -189,7 +191,7 @@ export class TestmapPage implements OnInit{
 
 delete(id) {
    this.scheduleService.delete(id).then((res) => {
-      location.reload();
+     this.navCtrl.setRoot(this.navCtrl.getActive().component);
     }, (error) => {
       console.log(error);
     });
